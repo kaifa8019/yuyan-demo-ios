@@ -1,0 +1,59 @@
+PODS:
+  - ADMobGenDeviceInfo (0.2.0):
+    - ADMobGenFoundation
+    - ADMobGenLocationManager
+    - ADMobGenNetwork
+  - ADMobGenFoundation (0.7.2)
+  - ADMobGenLocationManager (0.1.1)
+  - ADMobGenNetwork (0.5.2)
+  - Masonry (1.1.0)
+  - SVProgressHUD (2.2.5)
+  - YuyanOneClickLogin (1.0.0):
+    - ADMobGenDeviceInfo
+    - ADMobGenNetwork
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYText (1.0.7)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - Masonry
+  - SVProgressHUD
+  - YuyanOneClickLogin
+  - YYText
+  - YYWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ADMobGenDeviceInfo
+    - ADMobGenFoundation
+    - ADMobGenLocationManager
+    - ADMobGenNetwork
+    - Masonry
+    - SVProgressHUD
+    - YuyanOneClickLogin
+    - YYCache
+    - YYImage
+    - YYText
+    - YYWebImage
+
+SPEC CHECKSUMS:
+  ADMobGenDeviceInfo: a22261d610d19d66a1cc04eec32611fc4a05ff16
+  ADMobGenFoundation: de6e4f7b09df256a347878d0f0e0438c1feac94e
+  ADMobGenLocationManager: f2b0396d8c1c26e9490725150e3def622f74ccae
+  ADMobGenNetwork: 5a2b334b492d311df0d8b8776fbbb41e6982805f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  YuyanOneClickLogin: d75296cd4adc4158a96b74284ab03653ac5ae015
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+
+PODFILE CHECKSUM: d4fa08db96fdc0cfcc45c3ec13346eb05001e958
+
+COCOAPODS: 1.7.5

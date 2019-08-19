@@ -1,0 +1,6 @@
+framework module YuyanOneClickLogin {
+  umbrella header "YuyanOneClickLogin.h"
+
+  export *
+  module * { export * }
+}
