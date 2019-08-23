@@ -54,6 +54,8 @@ YuyanOneClickLoginHandler
 - (void)getLoginTokenWithModel:(YuyanCustomModel *)model complete:(void(^)( NSString *token, NSError * _Nullable error))complete
 ```
 
+在调用方法前, 需要指定`viewController`
+
 开启登录页, 自定义样式在`YuyanCustomModel`中配置
 
 成功获取token后, 需要调用对应VC的`dismissViewControllerAnimated`退出一键登录视图
@@ -63,3 +65,14 @@ error.code
  - 6669, 点击`使用其他登录方式`按钮, 需要手动管理dismiss
  - 6667, 点击了返回按钮, 自动dismiss
  - 其他状态码, 登录失败
+
+# 3 常见问题
+
+```
+移动卡返回【103101,错误的请求签名】
+```
+
+执行下[NSBundle mainBundle].localizedInfoDictionary语句，如果不为nil，则有国际本地化逻辑，这样的情况，目前有两种方法修复：
+
+1. 如果.strings文件内容为空且无用，删除即可；
+2. 如果.strings文件必须要使用，则需要在主工程中所有.strings文件中增加CFBundleIdentifier = "bundleId名称"；

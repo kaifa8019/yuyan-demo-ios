@@ -230,7 +230,8 @@
 #pragma mark - Lazy
 - (YuyanOneClickLoginHandler *)handler {
     if (!_handler) {
-        _handler = [[YuyanOneClickLoginHandler alloc] initWithViewController:self];
+        _handler = [[YuyanOneClickLoginHandler alloc] init];
+        _handler.viewController = self;
     }
     return _handler;
 }

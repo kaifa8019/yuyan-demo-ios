@@ -3,7 +3,7 @@
 //  YuyanOneClickLogin
 //
 //  Created by 白粿 on 2019/8/8.
-//  Copyright © 2019 Yuyan. All rights reserved.
+//  Copyright © 2019 艾狄墨搏. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

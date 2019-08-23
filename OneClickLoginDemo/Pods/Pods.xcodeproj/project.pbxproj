@@ -108,7 +108,7 @@
 		572D05B146EAA3EF5530A0D0E34904A0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A394053FFD2EDD2331C08540B05C3321 /* MASViewConstraint.m */; };
 		57A29968A09436671D572D7D6166C0FB /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCED0576314DC386EC8B6311973FFD9 /* YYTextRubyAnnotation.m */; };
 		57AE9C0FF97670789648FCFFCF23A28F /* YYCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A2EBFA8868634652F102CC76FBB6DA73 /* YYCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		586B5578605042FED28F6A8E3AE03F33 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70A72696262AB5D0E3FCA841E5BBA044 /* TYRZResource.bundle */; };
+		586B5578605042FED28F6A8E3AE03F33 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE226AA8E36BC1DE7D4612F570BD92EA /* TYRZResource.bundle */; };
 		596D6C47B56C81DAAF4AEFD6EBE90E4E /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D274B6CDAD07FC499E241906EC5F293 /* YYAnimatedImageView.m */; };
 		59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40660F66E56C0F1C8E89FC4706F4806F /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		5D6023B887E0BCB76115B617532A5390 /* YYWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BB9E5F8BAB4E441571FA416DBAD45A41 /* YYWebImageOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -180,7 +180,7 @@
 		F1B75048874B8773E5568E6D3ACA12E4 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D675B64582A295C501A89ECA2B8BAD39 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F39CB749264AC9A2AF8E3222BC5895B3 /* UIView+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = E19A212F38CBC20FA40AF582D5B39DDB /* UIView+YYText.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F469136DE2F0C917744B2169A95A73E5 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6857AB7D63BEF3ABE647E75E66881DB6 /* SVRadialGradientLayer.m */; };
-		F54E5FBF87E7B7F4306D1415ABC3D2F0 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0BBB326240297790E7C0D12DC614EFB7 /* ATAuthSDK.bundle */; };
+		F54E5FBF87E7B7F4306D1415ABC3D2F0 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48D5D48F65F218A64350FFE97E57115B /* ATAuthSDK.bundle */; };
 		F8C143EFE7FA434E787B94192DC86F63 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D98F8E8DE876D419B75B608ED411EB1 /* YYTextDebugOption.m */; };
 		F961EFDD9E3144F2F28EF4702C201F0A /* UIImageView+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E623E8A2B19402F1200CBBE9A6CC36 /* UIImageView+YYWebImage.m */; };
 		FA0845E169D8DC9A8096C6DB7BD71C75 /* YYWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 559F48315D6E664CABCE82E86339E8A7 /* YYWebImageManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -335,9 +335,9 @@
 		05226F70546114D043AE50DC7198E30D /* YYTextTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextTransaction.h; path = YYText/Utility/YYTextTransaction.h; sourceTree = "<group>"; };
 		06C86F1A2CA49B62D22A6D0FECE5A504 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		08A947B0B0FE7C734EE47F0464B058FD /* YYTextEffectWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextEffectWindow.h; path = YYText/Component/YYTextEffectWindow.h; sourceTree = "<group>"; };
+		0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YuyanOneClickLogin.xcconfig; sourceTree = "<group>"; };
 		0B3FBA17ABFA40C51C90C97A34909BFA /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAsyncLayer.h; path = YYText/Utility/YYTextAsyncLayer.h; sourceTree = "<group>"; };
 		0B5C0EF419EE08261EC9CBD446C02C67 /* UIImage+YYWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+YYWebImage.h"; path = "YYWebImage/Categories/UIImage+YYWebImage.h"; sourceTree = "<group>"; };
-		0BBB326240297790E7C0D12DC614EFB7 /* ATAuthSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = ATAuthSDK.bundle; path = Resource/ATAuthSDK.bundle; sourceTree = "<group>"; };
 		0C6F4829D47D1826F47CDC4264F9F6A8 /* libYYImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYImage.a; path = libYYImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA063C874C96B030192A9DB436C6575 /* YYFrameImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYFrameImage.m; path = YYImage/YYFrameImage.m; sourceTree = "<group>"; };
 		0D3404F54FEB928A10C317CB96C69783 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextKeyboardManager.h; path = YYText/Component/YYTextKeyboardManager.h; sourceTree = "<group>"; };
@@ -370,6 +370,7 @@
 		461CF5759BF92DFC7A3131A8095AF461 /* YYLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYLabel.h; path = YYText/YYLabel.h; sourceTree = "<group>"; };
 		46DF4D94AC1CC8E32ED8DAF8B228B460 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		48ACF38225AF5129416A1F090F6D3286 /* libYYCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYCache.a; path = libYYCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		48D5D48F65F218A64350FFE97E57115B /* ATAuthSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = ATAuthSDK.bundle; path = Resource/ATAuthSDK.bundle; sourceTree = "<group>"; };
 		48E623E8A2B19402F1200CBBE9A6CC36 /* UIImageView+YYWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+YYWebImage.m"; path = "YYWebImage/Categories/UIImageView+YYWebImage.m"; sourceTree = "<group>"; };
 		4C688FFECB6D136C597D3ACE47E1D609 /* _YYWebImageSetter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _YYWebImageSetter.m; path = YYWebImage/Categories/_YYWebImageSetter.m; sourceTree = "<group>"; };
 		4FC1978206616CE319648B302B05AA8A /* libYYWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYWebImage.a; path = libYYWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,6 +386,7 @@
 		64AE19CB11092489A6188BB5D2292433 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		66EB9E54513326D3EA879928620A6143 /* YYKVStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYKVStorage.m; path = YYCache/YYKVStorage.m; sourceTree = "<group>"; };
 		6857AB7D63BEF3ABE647E75E66881DB6 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		68F11D640C9D39D001BA05F9220BA1BA /* YuyanOneClickLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YuyanOneClickLogin.framework; sourceTree = "<group>"; };
 		6A37935B758A89DA422A97B92E26F6CC /* YYTextLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLine.m; path = YYText/Component/YYTextLine.m; sourceTree = "<group>"; };
 		6B5AAE7B028466D6527E5AC8E1FB576A /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		6B605FD91A96AD283A32F30D99C57BED /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAsyncLayer.m; path = YYText/Utility/YYTextAsyncLayer.m; sourceTree = "<group>"; };
@@ -394,7 +396,6 @@
 		7074EAFD5F36811D4101F8CB926C5151 /* YYKVStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKVStorage.h; path = YYCache/YYKVStorage.h; sourceTree = "<group>"; };
 		707BCBECC0A03B884ABF545A06F18C17 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPasteboard+YYText.h"; path = "YYText/Utility/UIPasteboard+YYText.h"; sourceTree = "<group>"; };
 		7081AFA78984390A069BA2A874760930 /* YYTextLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLayout.m; path = YYText/Component/YYTextLayout.m; sourceTree = "<group>"; };
-		70A72696262AB5D0E3FCA841E5BBA044 /* TYRZResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TYRZResource.bundle; path = Resource/TYRZResource.bundle; sourceTree = "<group>"; };
 		716C97F4062719D2A243CFB91E779B0F /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		71762A728913EB440C97D3616D291AF3 /* libYYText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYText.a; path = libYYText.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		73756D1F8818E9FF047B4AACD94A0812 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
@@ -404,7 +405,6 @@
 		78B8E2C4FADF48895CE8F8022EE19365 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		7C8BBE60D78D198FF11C4E08CDD4CF28 /* YYTextLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLayout.h; path = YYText/Component/YYTextLayout.h; sourceTree = "<group>"; };
 		7C999E12E2E0DDF26E47879249D0818F /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		7D30FF6F2A0B06C798FEB8C47A6A63E0 /* ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist"; sourceTree = "<group>"; };
 		802AF808070F261C37D77BA2A2AE6D11 /* ADMobGenFoundation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ADMobGenFoundation.xcconfig; sourceTree = "<group>"; };
 		8038DFCC66CAE9A2033DD68602E3847A /* YYTextDebugOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextDebugOption.h; path = YYText/Component/YYTextDebugOption.h; sourceTree = "<group>"; };
 		83867C014FFBFB9FB028887C1803E178 /* Pods-OneClickLoginDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OneClickLoginDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -417,11 +417,10 @@
 		8DEFCEB266286C3C215E03D6AE6A0A5F /* UIImage+YYWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+YYWebImage.m"; path = "YYWebImage/Categories/UIImage+YYWebImage.m"; sourceTree = "<group>"; };
 		8F728EB5C9FCBF6E433964231601E6C9 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		90894B10B984E180A751ABA201792FE2 /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYSpriteSheetImage.h; path = YYImage/YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		90BFB23DCDAD3E159E06C22AC25132D9 /* ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist"; sourceTree = "<group>"; };
 		90E592E57525FBF137897B3922614FA4 /* YYTextRunDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRunDelegate.m; path = YYText/String/YYTextRunDelegate.m; sourceTree = "<group>"; };
-		92A23FE34150AABCFE914C92F8C37EFC /* ATAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATAuthSDK.framework; sourceTree = "<group>"; };
 		96858C821F6167280E955DDE8EF832FF /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		96A04DC244577F2D17DC7DF6ED35D582 /* Pods-OneClickLoginDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OneClickLoginDemo-resources.sh"; sourceTree = "<group>"; };
-		9933CA7865D27D29AECA19F28CFDEA64 /* YuyanOneClickLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YuyanOneClickLogin.framework; sourceTree = "<group>"; };
 		99ED8A618366DADB19C1DBB2BD1C73AA /* YYImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImageCache.m; path = YYWebImage/YYImageCache.m; sourceTree = "<group>"; };
 		9BB73107492028B5EAAE66C463D2632D /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -437,11 +436,11 @@
 		A694BBBAA00D42F9F5A4F9CC7AAEB9E4 /* YYMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYMemoryCache.h; path = YYCache/YYMemoryCache.h; sourceTree = "<group>"; };
 		A713A7829C58FDFFD83F0245470F12FA /* YYTextContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextContainerView.h; path = YYText/Component/YYTextContainerView.h; sourceTree = "<group>"; };
 		A8382FD57E760B7B394E14A97BB2C8EA /* YYTextSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextSelectionView.m; path = YYText/Component/YYTextSelectionView.m; sourceTree = "<group>"; };
-		A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YuyanOneClickLogin.xcconfig; sourceTree = "<group>"; };
 		AC24399E564F5E67A707C95EC2C12709 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSParagraphStyle+YYText.h"; path = "YYText/Utility/NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
 		AC6C7E91A9407214EEE222CE0421BFE9 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYSpriteSheetImage.m; path = YYImage/YYSpriteSheetImage.m; sourceTree = "<group>"; };
 		AD4BC5DA3FCADCFEF2D17C4E345463EE /* YYTextAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAttribute.h; path = YYText/String/YYTextAttribute.h; sourceTree = "<group>"; };
 		ADEA2E4404594771E4A188C8AD06ED5E /* YYText-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYText-prefix.pch"; sourceTree = "<group>"; };
+		AE226AA8E36BC1DE7D4612F570BD92EA /* TYRZResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TYRZResource.bundle; path = Resource/TYRZResource.bundle; sourceTree = "<group>"; };
 		B0B7F56458765700FD36DCA698227981 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSParagraphStyle+YYText.m"; path = "YYText/Utility/NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
 		B156FCEF7F4C29E7792F504100ED7E9E /* YYTextArchiver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextArchiver.m; path = YYText/String/YYTextArchiver.m; sourceTree = "<group>"; };
 		B2A957233B327047C05DF1982AC9F290 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
@@ -585,6 +584,14 @@
 			path = YYWebImage;
 			sourceTree = "<group>";
 		};
+		13CAC1C3BDF1AE5C4E9F463E2DC9EDC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68F11D640C9D39D001BA05F9220BA1BA /* YuyanOneClickLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		167850C39CDF6BC2F1F42E43D396BDA1 /* YYText */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,16 +650,6 @@
 			path = YYText;
 			sourceTree = "<group>";
 		};
-		2383BDDF285DF33F30575FFE76DCD157 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7D30FF6F2A0B06C798FEB8C47A6A63E0 /* ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist */,
-				A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/YuyanOneClickLogin";
-			sourceTree = "<group>";
-		};
 		24F53010C77CA0DA15071BEE38F5A7AF /* Pods-OneClickLoginDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +703,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3DC1A17068D07DABDAC0419644628CE7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				48D5D48F65F218A64350FFE97E57115B /* ATAuthSDK.bundle */,
+				AE226AA8E36BC1DE7D4612F570BD92EA /* TYRZResource.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		4BC74F5D2F06E3D997520A17DBB15E90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,7 +721,7 @@
 				30C11BC41013EFCFD9B0A6217B5AB106 /* ADMobGenNetwork */,
 				D76C666C71F0F764B549731A186E44B0 /* Masonry */,
 				B566A99DD38B7A4E403785B672424358 /* SVProgressHUD */,
-				616FDFE579049C7C24E81CF6D565D45A /* YuyanOneClickLogin */,
+				6353D5C47C180D04D500CC82FF256BB2 /* YuyanOneClickLogin */,
 				ABFE052A09EF8EAAAEEDA6B7F0D1AE54 /* YYCache */,
 				A8E781821218EF00C7F418F7DD6E28F8 /* YYImage */,
 				167850C39CDF6BC2F1F42E43D396BDA1 /* YYText */,
@@ -749,12 +755,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		616FDFE579049C7C24E81CF6D565D45A /* YuyanOneClickLogin */ = {
+		6353D5C47C180D04D500CC82FF256BB2 /* YuyanOneClickLogin */ = {
 			isa = PBXGroup;
 			children = (
-				8E08D433A19E277D1D44C89373D7D275 /* Frameworks */,
-				9662386A7F9671BF5728C45426F98A60 /* Resources */,
-				2383BDDF285DF33F30575FFE76DCD157 /* Support Files */,
+				13CAC1C3BDF1AE5C4E9F463E2DC9EDC6 /* Frameworks */,
+				3DC1A17068D07DABDAC0419644628CE7 /* Resources */,
+				7386BB130A8132CB3F994C95AD895FE3 /* Support Files */,
 			);
 			name = YuyanOneClickLogin;
 			path = YuyanOneClickLogin;
@@ -775,6 +781,16 @@
 				1ADDE8F6918686B14DCBCE42E992A4A2 /* SVProgressHUD.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		7386BB130A8132CB3F994C95AD895FE3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90BFB23DCDAD3E159E06C22AC25132D9 /* ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist */,
+				0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YuyanOneClickLogin";
 			sourceTree = "<group>";
 		};
 		73C1A9B1975A4E9453DB80CC286639A2 /* Support Files */ = {
@@ -812,15 +828,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8E08D433A19E277D1D44C89373D7D275 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				92A23FE34150AABCFE914C92F8C37EFC /* ATAuthSDK.framework */,
-				9933CA7865D27D29AECA19F28CFDEA64 /* YuyanOneClickLogin.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8FF542F9E5B3F0AADC9FA8EFA97F9865 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,15 +837,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
-			sourceTree = "<group>";
-		};
-		9662386A7F9671BF5728C45426F98A60 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				0BBB326240297790E7C0D12DC614EFB7 /* ATAuthSDK.bundle */,
-				70A72696262AB5D0E3FCA841E5BBA044 /* TYRZResource.bundle */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		A8E781821218EF00C7F418F7DD6E28F8 /* YYImage */ = {
@@ -1780,7 +1778,7 @@
 		};
 		51CE61F29F9DE830389F7B9F4981881E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */;
+			baseConfigurationReference = 0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1796,7 +1794,7 @@
 		};
 		5883DDE1AEC46CCBDAA0F1A8ACAC9657 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */;
+			baseConfigurationReference = 0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2115,7 +2113,7 @@
 		};
 		C41C087C60B6DC77A3C04200E705A5FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */;
+			baseConfigurationReference = 0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";
@@ -2222,7 +2220,7 @@
 		};
 		FF6DFC4C1BCE9B4FDB13F94379C9BFB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96C8713DEA286BD2989AEA64079056E /* YuyanOneClickLogin.xcconfig */;
+			baseConfigurationReference = 0AFBCA667E0A9BE9730CE6F2F520A5DC /* YuyanOneClickLogin.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";

@@ -3,7 +3,7 @@
 //  YuyanOneClickLogin
 //
 //  Created by 白粿 on 2019/8/6.
-//  Copyright © 2019 Yuyan. All rights reserved.
+//  Copyright © 2019 艾狄墨搏. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,10 +13,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YuyanOneClickLoginHandler : NSObject
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithViewController:(UIViewController *)vc NS_DESIGNATED_INITIALIZER;
-@property (nonatomic, weak, readonly) UIViewController * viewController;
+
+@property (nonatomic, weak) UIViewController * viewController;
 
 /**
  * @brief  初始化与预请求, 验证蜂窝数据网络, 勿频繁重复调用
@@ -26,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)prepareWithAppID:(NSString *)appID complete:(void(^_Nullable)(NSError *error))complete;
 
 /*
+ 使用前需要指定 viewController
  获取成功:
     token 授权字段, error = nil
     需要手动调用 dismissViewControllerAnimated 管理VC退出
