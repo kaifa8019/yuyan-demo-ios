@@ -38,15 +38,15 @@
 // 登录
 @property (nonatomic, strong) NSString *loginBtnTitle;  // loginBtn标题
 @property (nonatomic, strong) UIColor *loginBtnTitleColor;  // loginBtn文本颜色
-@property (nonatomic,strong) NSArray *loginBtnBgImgs; //loginBtn背景图片组，高度45.0pt，@[激活状态的图片,失效状态的图片,高亮状态的图片]
+@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs; //loginBtn背景图片组，高度45.0pt，@[激活状态的图片,失效状态的图片,高亮状态的图片]
 @property (nonatomic, assign) CGFloat loginBtnTopOffetY; // loginBtn相对导航栏底部的Y轴距离
 
 // 协议
-@property (nonatomic, copy) NSArray *checkBoxImages; // checkBox图片组，[uncheckedImg,checkedImg]
+@property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages; // checkBox图片组，[uncheckedImg,checkedImg]
 @property (nonatomic, assign) BOOL checkBoxIsChecked; // checkBox是否勾选，默认YES
-@property (nonatomic, copy) NSArray *privacyOne; // 协议1，[协议名称,协议Url]
-@property (nonatomic, copy) NSArray *privacyTwo; // 协议2，[协议名称,协议Url]
-@property (nonatomic, copy) NSArray *privacyColors; // 协议内容颜色，[非点击文案颜色,协议颜色]
+@property (nonatomic, copy) NSArray<NSString *> *privacyOne; // 协议1，[协议名称,协议Url]
+@property (nonatomic, copy) NSArray<NSString *> *privacyTwo; // 协议2，[协议名称,协议Url]
+@property (nonatomic, copy) NSArray<UIColor *> *privacyColors; // 协议内容颜色，[非点击文案颜色,协议颜色]
 @property (nonatomic, assign) CGFloat privacyBottomOffetY; // 协议相对全屏底部的Y轴距离！！！与其他有区别
 
 // 切换到其他方式
