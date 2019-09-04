@@ -74,6 +74,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E740823A231E84050063BAAA /* NumberCheck */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NumberCheck;
+			sourceTree = "<group>";
+		};
 		E7591254230132D30098348E = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +102,7 @@
 		E759125F230132D30098348E /* OneClickLoginDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E740823A231E84050063BAAA /* NumberCheck */,
 				E717476F23052935000E158B /* icon-1024.png */,
 				E7591260230132D30098348E /* AppDelegate.h */,
 				E7591261230132D30098348E /* AppDelegate.m */,

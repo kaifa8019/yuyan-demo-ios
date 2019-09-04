@@ -22,8 +22,10 @@
 @property (nonatomic, strong) YuyanOneClickLoginHandler *handler;
 
 @property (nonatomic, strong) ADMobNetworkClient *networkRequest;
+@property (nonatomic, strong) ADMobNetworkClient *checkRequest;
 
 @property (nonatomic, strong) UIButton *loginBtn;
+@property (nonatomic, strong) UITextField *phoneTxtField;
 
 @property (nonatomic, weak) TimeView *timeView;
 @property (nonatomic, assign) double stTime;
@@ -77,6 +79,32 @@
     timeView.userInteractionEnabled = NO;
     [[UIApplication sharedApplication].delegate.window addSubview:timeView];
     self.timeView = timeView;
+    
+    UIButton *btnCheck = [[UIButton alloc] init];
+    btnCheck.titleLabel.font = [UIFont systemFontOfSize:15];
+    btnCheck.backgroundColor = self.loginBtn.backgroundColor;
+    btnCheck.layer.cornerRadius = self.loginBtn.layer.cornerRadius;
+    [btnCheck setTitle:@"本机号码校验" forState:UIControlStateNormal];
+    [btnCheck addTarget:self action:@selector(checkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnCheck];
+    [btnCheck mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(tipLab.mas_bottom).offset(20);
+        make.right.mas_equalTo(-20);
+        make.size.mas_equalTo(CGSizeMake(100, 40));
+    }];
+    
+    _phoneTxtField = [[UITextField alloc] init];
+    self.phoneTxtField.placeholder = @"请输入需要校验的手机号码";
+    self.phoneTxtField.layer.cornerRadius = self.loginBtn.layer.cornerRadius;
+    self.phoneTxtField.layer.borderWidth = 1;
+    self.phoneTxtField.layer.borderColor = [UIColor grayColor].CGColor;
+    [self.view addSubview:self.phoneTxtField];
+    [self.phoneTxtField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(btnCheck);
+        make.left.mas_equalTo(20);
+        make.right.equalTo(btnCheck.mas_left).offset(-20);
+        make.height.equalTo(btnCheck);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,6 +136,27 @@
                                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                     [self dismissBtnClick:nil];
                                     [self showErrorVCWithCode:error.code message:error.localizedDescription];
+                                }];
+}
+
+- (void)requestPhoneCheck:(NSString *)phone token:(NSString *)token {
+    _checkRequest = [[ADMobNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://yuyan.popadshop.com"]];
+    
+    [self.checkRequest POST:@"/test/verifymobile"
+                   parameters:@{
+                                @"certificate": token,
+                                } success:^(NSURLSessionDataTask *task, id responseObject) {
+                                    if (responseObject == nil || ![responseObject isKindOfClass:[NSDictionary class]]) {
+                                        responseObject = @{};
+                                    }
+                                    
+                                    if ([responseObject[@"data"] isEqualToString:@"PASS"]) {
+                                        [SVProgressHUD showSuccessWithStatus:responseObject[@"data"]];
+                                    } else {
+                                        [SVProgressHUD showErrorWithStatus:responseObject[@"data"]];
+                                    }
+                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
                                 }];
 }
 
@@ -271,6 +320,27 @@
 - (void)thirdBtnClick:(UIButton *)sender {
     NSString *msg = [NSString stringWithFormat:@"使用%@登录", sender.currentTitle];
     [SVProgressHUD showInfoWithStatus:msg];
+}
+
+- (void)checkBtnClick:(UIButton *)sender {
+    NSString *phone = self.phoneTxtField.text;
+    
+    [SVProgressHUD show];
+    [[YuyanNumberCheck shareHandler] prepareWithAppID:appID complete:^(NSError * _Nullable error) {
+        if (error) {
+            [SVProgressHUD showInfoWithStatus:error.localizedDescription];
+            return;
+        }
+        
+        [[YuyanNumberCheck shareHandler] getTokenWithPhone:phone Timeout:3 complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
+            if (error) {
+                [SVProgressHUD showInfoWithStatus:error.localizedDescription];
+                return;
+            }
+            
+            [self requestPhoneCheck:phone token:token];
+        }];
+    }];
 }
 
 @end

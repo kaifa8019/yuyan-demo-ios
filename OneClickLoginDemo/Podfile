@@ -4,6 +4,7 @@ target 'OneClickLoginDemo' do
   pod 'SVProgressHUD'
   pod 'YYText'
   pod 'YYWebImage'
+  pod 'IQKeyboardManager'
   
   pod 'YuyanOneClickLogin'
 end
