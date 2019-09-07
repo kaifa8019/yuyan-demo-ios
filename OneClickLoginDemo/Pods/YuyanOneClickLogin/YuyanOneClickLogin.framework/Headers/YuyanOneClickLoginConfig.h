@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YuyanOneClickLoginConfig : NSObject
 
-+ (NSString *)getVersion;
++ (NSString *)getVersion NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig sdkVersion]");
 
 @end
 

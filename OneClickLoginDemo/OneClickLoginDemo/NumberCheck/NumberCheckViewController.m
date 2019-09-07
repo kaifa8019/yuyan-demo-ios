@@ -43,7 +43,7 @@
     UIButton *btnCheck = [[UIButton alloc] init];
     btnCheck.titleLabel.font = [UIFont systemFontOfSize:15];
     btnCheck.backgroundColor = [UIColor colorWithRed:64/255.0 green:112/255.0 blue:244/255.0 alpha:1];
-    [btnCheck setTitle:@"一键登录/注册" forState:UIControlStateNormal];
+    [btnCheck setTitle:@"号码校验" forState:UIControlStateNormal];
     btnCheck.layer.cornerRadius = 4;
     [btnCheck addTarget:self action:@selector(checkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCheck];
@@ -92,7 +92,7 @@
             return;
         }
         
-        [[YuyanNumberCheck shareHandler] getTokenWithPhone:phone Timeout:3 complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
+        [[YuyanNumberCheck shareHandler] getTokenWithPhone:phone complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
             if (error) {
                 [SVProgressHUD showInfoWithStatus:error.localizedDescription];
                 return;

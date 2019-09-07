@@ -26,10 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief  获取本机号码校验token
  * @param  phone    需要进行校验的手机号码
- * @param  timeout  接口超时时间，单位s，默认3.0s
  * @param  complete 结果回调（异步）
  */
-- (void)getTokenWithPhone:(NSString *)phone Timeout:(NSTimeInterval )timeout complete:(void (^)(NSString *token, NSError * _Nullable error))complete;
+- (void)getTokenWithPhone:(NSString *)phone complete:(void (^)(NSString *token, NSError * _Nullable error))complete;
+
+/// 请使用 -getTokenWithPhone: timeout: complete:
+- (void)getTokenWithPhone:(NSString *)phone Timeout:(NSTimeInterval )timeout complete:(void (^)(NSString *token, NSError * _Nullable error))complete NS_DEPRECATED_IOS(2_0,7_0, "请使用 -getTokenWithPhone: complete:");
 
 @end
 

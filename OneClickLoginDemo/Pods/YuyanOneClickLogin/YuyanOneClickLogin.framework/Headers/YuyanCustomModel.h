@@ -11,7 +11,8 @@
 
 @interface YuyanCustomModel : NSObject
 
-@property (nonatomic, assign) NSTimeInterval timeout;// 超时时间(s) 默认 3s
+/// 请使用 [YuyanBaseConfig sdkVersion]
+@property (nonatomic, assign) NSTimeInterval timeout NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig sdkVersion]");
 
 // 导航栏
 @property (nonatomic, strong) UIColor *navColor; // 导航栏主题色, 默认[UIColor whiteColor]

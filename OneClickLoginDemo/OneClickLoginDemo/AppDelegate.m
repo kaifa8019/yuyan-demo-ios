@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <YuyanOneClickLogin/YuyanOneClickLogin.h>
 
 @interface AppDelegate ()
 
@@ -26,6 +27,9 @@
     self.window.rootViewController = nvgCtrl;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"当前SDK版本号: %@", [YuyanBaseConfig sdkVersion]);
+    NSLog(@"当前接口超时时间: %g", [YuyanBaseConfig timeoutLimit]);
     
     return YES;
 }

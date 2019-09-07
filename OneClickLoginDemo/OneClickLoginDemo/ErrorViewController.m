@@ -95,7 +95,7 @@
     UILabel *codeLab = [[UILabel alloc] init];
     codeLab.font = txtFont;
     codeLab.textColor = txtColor;
-    codeLab.text = [NSString stringWithFormat:@"错误代码：%ld", self.preCode];
+    codeLab.text = [NSString stringWithFormat:@"错误代码：%ld", (long)self.preCode];
     [infoView addSubview:codeLab];
     [codeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(35);

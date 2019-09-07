@@ -38,12 +38,32 @@ pod 'YuyanOneClickLogin'
 #import <YuyanOneClickLogin/YuyanOneClickLogin.h>
 ```
 
-# 2 主要功能
+# 2. 主要功能
 
 - [一键登录](https://github.com/kaifa8019/yuyan-sdk-ios/blob/master/Document/一键登录.md)
 - [本机号码校验](https://github.com/kaifa8019/yuyan-sdk-ios/blob/master/Document/本机号码校验.md)
 
-# 3 常见问题
+# 3. 通用属性
+
+```
+[YuyanBaseConfig sdkVersion]
+```
+
+获取SDK版本号
+
+```
+[YuyanBaseConfig timeoutLimit]
+```
+
+获取接口超时时间, 默认3s
+
+```
+[YuyanBaseConfig setTimeoutLimit:(NSTimeInterval)]
+```
+
+设置接口超时时间
+
+# 4. 常见问题
 
 ### 移动卡返回【103101,错误的请求签名】
 
