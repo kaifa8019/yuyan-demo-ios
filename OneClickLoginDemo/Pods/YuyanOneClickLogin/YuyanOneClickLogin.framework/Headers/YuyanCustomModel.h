@@ -11,14 +11,15 @@
 
 @interface YuyanCustomModel : NSObject
 
-/// 请使用 [YuyanBaseConfig sdkVersion]
-@property (nonatomic, assign) NSTimeInterval timeout NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig sdkVersion]");
+/// 请使用 [YuyanBaseConfig timeoutLimit]
+@property (nonatomic, assign) NSTimeInterval timeout NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig timeoutLimit]");
 
 // 导航栏
 @property (nonatomic, strong) UIColor *navColor; // 导航栏主题色, 默认[UIColor whiteColor]
 @property (nonatomic, copy) NSAttributedString *navTitle; // 导航栏标题，内容、字体、大小、颜色
 @property (nonatomic, strong) UIImage *navBackImage; // 导航栏返回图片
 @property (nonatomic, strong) UIBarButtonItem *navMoreControl; // 导航栏右侧自定义控件，UIBarButtonItem
+@property (nonatomic, assign) BOOL hideNavBackItem;// 是否隐藏授权页导航栏返回按钮，默认不隐藏
 
 // logo图片
 @property (nonatomic, strong) UIImage *logoImage; // logo图片
@@ -33,14 +34,18 @@
 
 // 号码
 @property (nonatomic, strong) UIColor *numberColor;
-@property (nonatomic, assign) CGFloat numberSize;
+@property (nonatomic, strong) UIFont *numberFont;
 @property (nonatomic, assign) CGFloat numberTopOffetY; // number相对导航栏底部的Y轴距离
 
 // 登录
-@property (nonatomic, strong) NSString *loginBtnTitle;  // loginBtn标题
-@property (nonatomic, strong) UIColor *loginBtnTitleColor;  // loginBtn文本颜色
-@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs; //loginBtn背景图片组，高度45.0pt，@[激活状态的图片,失效状态的图片,高亮状态的图片]
+@property (nonatomic, strong) NSAttributedString *loginBtnText; // loginBtn文案
+@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs; //loginBtn背景图片组，高度50.0pt，@[激活状态的图片,失效状态的图片,高亮状态的图片]
 @property (nonatomic, assign) CGFloat loginBtnTopOffetY; // loginBtn相对导航栏底部的Y轴距离
+@property (nonatomic, assign) CGFloat loginBtnHeight; // loginBtn高度，必须大于40.0pt
+@property (nonatomic, assign) CGFloat loginBtnLRPadding; // 按钮左右屏幕边距，按钮的宽度必须大于屏幕的一半
+
+@property (nonatomic, strong) NSString *loginBtnTitle NS_DEPRECATED_IOS(2_0, 7_0, "请使用 loginBtnText");
+@property (nonatomic, strong) UIColor *loginBtnTitleColor NS_DEPRECATED_IOS(2_0, 7_0, "请使用 loginBtnText");
 
 // 协议
 @property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages; // checkBox图片组，[uncheckedImg,checkedImg]

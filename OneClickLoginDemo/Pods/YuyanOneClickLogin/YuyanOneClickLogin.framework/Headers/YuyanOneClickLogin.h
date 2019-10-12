@@ -12,7 +12,6 @@
 
 #import <YuyanOneClickLogin/YuyanBaseConfig.h>
 
-#import <YuyanOneClickLogin/YuyanOneClickLoginConfig.h>
 #import <YuyanOneClickLogin/YuyanOneClickLoginHandler.h>
 #import <YuyanOneClickLogin/YuyanCustomModel.h>
 

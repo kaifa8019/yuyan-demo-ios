@@ -157,7 +157,7 @@
     
     // 号码
     model.numberColor = [UIColor colorWithRed:41/255.0 green:41/255.0 blue:41/255.0 alpha:1];
-    model.numberSize = 16;
+    model.numberFont = [UIFont systemFontOfSize:16];
     model.numberTopOffetY = 176;
     
     // 自定义文案
@@ -244,7 +244,7 @@
 #pragma mark - Lazy
 - (YuyanOneClickLoginHandler *)handler {
     if (!_handler) {
-        _handler = [[YuyanOneClickLoginHandler alloc] init];
+        _handler = [YuyanOneClickLoginHandler shareHandler];
         _handler.viewController = self;
     }
     return _handler;

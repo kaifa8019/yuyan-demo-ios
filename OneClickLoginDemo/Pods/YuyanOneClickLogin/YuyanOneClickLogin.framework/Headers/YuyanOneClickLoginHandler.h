@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) UIViewController * viewController;
 
++ (instancetype)new NS_UNAVAILABLE;
++ (instancetype)alloc NS_UNAVAILABLE;
++ (instancetype)shareHandler;
+
 /**
  * @brief  初始化与预请求, 验证蜂窝数据网络, 勿频繁重复调用
  * @param  appID 初始化参数
