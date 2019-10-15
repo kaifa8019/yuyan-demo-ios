@@ -144,8 +144,12 @@
     [rightBtn sizeToFit];
     
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    model.navMoreControl = rightBarItem;
-    model.navTitle = [[NSAttributedString alloc] initWithString:@"一键登录/注册" attributes:@{NSForegroundColorAttributeName: UIColor.blackColor, NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:16]}];
+    model.nav.moreControl = rightBarItem;
+    model.nav.title = [[NSAttributedString alloc] initWithString:@"一键登录/注册"
+                                                      attributes:@{
+                                                          NSForegroundColorAttributeName: UIColor.blackColor,
+                                                          NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:16]
+                                                      }];
     
     // logo图片
     UIImage *logoImg = [UIImage imageNamed:@"icon-1024"];
@@ -166,9 +170,13 @@
     model.sloganTopOffetY = 208;
     
     // 登录按钮
-    model.loginBtnTitle = @"本机号码一键登录";
+    model.loginBtnText = [[NSAttributedString alloc] initWithString:@"本机号码一键登录"
+                                                         attributes:@{
+                                                             NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                             NSFontAttributeName: [UIFont systemFontOfSize:20.0],
+                                                         }];
     model.loginBtnTopOffetY = 241;
-    self.timeView.loginStr = model.loginBtnTitle;
+    self.timeView.loginStr = model.loginBtnText.string;
     
     // 其他登录方式
     model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换登录方式" attributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:16.0]}];

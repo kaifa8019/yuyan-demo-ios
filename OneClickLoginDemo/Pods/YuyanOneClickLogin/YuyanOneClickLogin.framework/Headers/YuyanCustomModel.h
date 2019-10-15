@@ -8,18 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "YuyanCustomNavModel.h"
 
 @interface YuyanCustomModel : NSObject
 
 /// 请使用 [YuyanBaseConfig timeoutLimit]
 @property (nonatomic, assign) NSTimeInterval timeout NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig timeoutLimit]");
 
-// 导航栏
-@property (nonatomic, strong) UIColor *navColor; // 导航栏主题色, 默认[UIColor whiteColor]
-@property (nonatomic, copy) NSAttributedString *navTitle; // 导航栏标题，内容、字体、大小、颜色
-@property (nonatomic, strong) UIImage *navBackImage; // 导航栏返回图片
-@property (nonatomic, strong) UIBarButtonItem *navMoreControl; // 导航栏右侧自定义控件，UIBarButtonItem
-@property (nonatomic, assign) BOOL hideNavBackItem;// 是否隐藏授权页导航栏返回按钮，默认不隐藏
+/// 导航栏设置
+@property (nonatomic, strong) YuyanCustomNavModel *nav;
+
+@property (nonatomic, strong) UIColor *navColor NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.color");
+@property (nonatomic, copy) NSAttributedString *navTitle NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.title");
+@property (nonatomic, strong) UIImage *navBackImage NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.backImage");
+@property (nonatomic, strong) UIBarButtonItem *navMoreControl NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.moreControl");
+@property (nonatomic, assign) BOOL hideNavBackItem NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.hideBackItem");
 
 // logo图片
 @property (nonatomic, strong) UIImage *logoImage; // logo图片
@@ -43,9 +46,6 @@
 @property (nonatomic, assign) CGFloat loginBtnTopOffetY; // loginBtn相对导航栏底部的Y轴距离
 @property (nonatomic, assign) CGFloat loginBtnHeight; // loginBtn高度，必须大于40.0pt
 @property (nonatomic, assign) CGFloat loginBtnLRPadding; // 按钮左右屏幕边距，按钮的宽度必须大于屏幕的一半
-
-@property (nonatomic, strong) NSString *loginBtnTitle NS_DEPRECATED_IOS(2_0, 7_0, "请使用 loginBtnText");
-@property (nonatomic, strong) UIColor *loginBtnTitleColor NS_DEPRECATED_IOS(2_0, 7_0, "请使用 loginBtnText");
 
 // 协议
 @property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages; // checkBox图片组，[uncheckedImg,checkedImg]

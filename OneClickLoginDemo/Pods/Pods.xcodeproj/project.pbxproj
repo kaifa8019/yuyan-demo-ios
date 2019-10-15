@@ -1942,6 +1942,23 @@
 			};
 			name = Debug;
 		};
+		46A31C84482F243A462AA18DAF20CBF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7785FABC81611633989D951A6BF65005 /* YuyanOneClickLogin.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";
+				IBSC_MODULE = YuyanOneClickLogin;
+				INFOPLIST_FILE = "Target Support Files/YuyanOneClickLogin/ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = YuyanOneClickLogin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2345,6 +2362,23 @@
 			};
 			name = Release;
 		};
+		A6B925799A76C9120DED4B648AAC6693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7785FABC81611633989D951A6BF65005 /* YuyanOneClickLogin.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";
+				IBSC_MODULE = YuyanOneClickLogin;
+				INFOPLIST_FILE = "Target Support Files/YuyanOneClickLogin/ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = YuyanOneClickLogin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		A851766247334862823632E3E5CDFBBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 43EB102D6B8ECBB038BDFE4659AB6B87 /* ADMobGenDeviceInfo.xcconfig */;
@@ -2360,22 +2394,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		C41C087C60B6DC77A3C04200E705A5FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7785FABC81611633989D951A6BF65005 /* YuyanOneClickLogin.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";
-				INFOPLIST_FILE = "Target Support Files/YuyanOneClickLogin/ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = YuyanOneClickLogin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		C91E657779E99963233F116F53683F78 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2468,22 +2486,6 @@
 			};
 			name = Debug;
 		};
-		FF6DFC4C1BCE9B4FDB13F94379C9BFB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7785FABC81611633989D951A6BF65005 /* YuyanOneClickLogin.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YuyanOneClickLogin";
-				INFOPLIST_FILE = "Target Support Files/YuyanOneClickLogin/ResourceBundle-YuyanOneClickLogin-YuyanOneClickLogin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = YuyanOneClickLogin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2526,8 +2528,8 @@
 		40B714135EFB2962EDE4A525A9763B97 /* Build configuration list for PBXNativeTarget "YuyanOneClickLogin-YuyanOneClickLogin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF6DFC4C1BCE9B4FDB13F94379C9BFB6 /* Debug */,
-				C41C087C60B6DC77A3C04200E705A5FB /* Release */,
+				46A31C84482F243A462AA18DAF20CBF6 /* Debug */,
+				A6B925799A76C9120DED4B648AAC6693 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
