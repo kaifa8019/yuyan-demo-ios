@@ -155,9 +155,9 @@
     UIImage *logoImg = [UIImage imageNamed:@"icon-1024"];
     logoImg = [logoImg yy_imageByResizeToSize:CGSizeMake(79, 79)];
     logoImg = [logoImg yy_imageByRoundCornerRadius:79.0/2];
-    model.logoSize = CGSizeMake(79, 79);
-    model.logoImage = logoImg;
-    model.logoTopOffetY = 49;
+    model.logo.size = CGSizeMake(79, 79);
+    model.logo.image = logoImg;
+    model.logo.topOffetY = 49;
     
     // 号码
     model.numberColor = [UIColor colorWithRed:41/255.0 green:41/255.0 blue:41/255.0 alpha:1];
@@ -183,9 +183,9 @@
     model.changeBtnTopOffetY = 297;
     
     // 自定义协议
-    model.privacyOne = @[@"APP用户协议1", @"https://www.taobao.com/"];
-    model.privacyTwo = @[@"APP协议2", @"https://www.baidu.com/"];
-    model.privacyColors = @[UIColor.darkTextColor,UIColor.blueColor];
+    model.agreement.privacyOne = @[@"APP用户协议1", @"https://www.taobao.com/"];
+    model.agreement.privacyTwo = @[@"APP协议2", @"https://www.baidu.com/"];
+    model.agreement.colors = @[UIColor.darkTextColor,UIColor.blueColor];
     
     // 自定义View
     __weak ViewController *weakSelf = self;

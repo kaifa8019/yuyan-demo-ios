@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "YuyanCustomNavModel.h"
+#import "YuyanCustomLogoModel.h"
+#import "YuyanCustomAgreementModel.h"
 
 @interface YuyanCustomModel : NSObject
 
@@ -24,11 +26,13 @@
 @property (nonatomic, strong) UIBarButtonItem *navMoreControl NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.moreControl");
 @property (nonatomic, assign) BOOL hideNavBackItem NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.hideBackItem");
 
-// logo图片
-@property (nonatomic, strong) UIImage *logoImage; // logo图片
-@property (nonatomic, assign) CGSize logoSize; // logo大小
-@property (nonatomic, assign) BOOL logoIsHidden; // logo是否隐藏
-@property (nonatomic, assign) CGFloat logoTopOffetY; // logo相对导航栏底部的Y轴距离
+/// logo图设置
+@property (nonatomic, strong) YuyanCustomLogoModel *logo;
+
+@property (nonatomic, strong) UIImage *logoImage NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.image");
+@property (nonatomic, assign) CGSize logoSize NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.size");
+@property (nonatomic, assign) BOOL logoIsHidden NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.isHidden");
+@property (nonatomic, assign) CGFloat logoTopOffetY NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.topOffetY");
 
 // slogan
 @property (nonatomic, copy) NSAttributedString *sloganText; // slogan文案，内容、字体、大小、颜色
@@ -47,13 +51,15 @@
 @property (nonatomic, assign) CGFloat loginBtnHeight; // loginBtn高度，必须大于40.0pt
 @property (nonatomic, assign) CGFloat loginBtnLRPadding; // 按钮左右屏幕边距，按钮的宽度必须大于屏幕的一半
 
-// 协议
-@property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages; // checkBox图片组，[uncheckedImg,checkedImg]
-@property (nonatomic, assign) BOOL checkBoxIsChecked; // checkBox是否勾选，默认YES
-@property (nonatomic, copy) NSArray<NSString *> *privacyOne; // 协议1，[协议名称,协议Url]
-@property (nonatomic, copy) NSArray<NSString *> *privacyTwo; // 协议2，[协议名称,协议Url]
-@property (nonatomic, copy) NSArray<UIColor *> *privacyColors; // 协议内容颜色，[非点击文案颜色,协议颜色]
-@property (nonatomic, assign) CGFloat privacyBottomOffetY; // 协议相对全屏底部的Y轴距离！！！与其他有区别
+/// 协议设置
+@property (nonatomic, strong) YuyanCustomAgreementModel *agreement;
+
+@property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.images");
+@property (nonatomic, assign) BOOL checkBoxIsChecked NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.isChecked");
+@property (nonatomic, copy) NSArray<NSString *> *privacyOne NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.privacyOne");
+@property (nonatomic, copy) NSArray<NSString *> *privacyTwo NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.privacyTwo");
+@property (nonatomic, copy) NSArray<UIColor *> *privacyColors NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.colors");
+@property (nonatomic, assign) CGFloat privacyBottomOffetY NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.bottomOffetY");
 
 // 切换到其他方式
 @property (nonatomic, copy) NSAttributedString *changeBtnTitle; // changeBtn标题，内容、字体、大小、颜色
