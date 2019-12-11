@@ -33,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
     token 授权字段, error = nil
     需要手动调用 dismissViewControllerAnimated 管理VC退出
  获取失败
-    error.code == 6669, 使用其他登录方式, 手动管理dismiss
-    error.code == 6667, 点击了返回按钮, 自动dismiss
+    error.code == 700000, 点击了返回按钮, 自动dismiss
+    error.code == 700001, 使用其他登录方式, 手动管理dismiss
     其他code, 获取token失败
  */
 - (void)getLoginTokenWithModel:(YuyanCustomModel *)model complete:(void(^)( NSString *token, NSError * _Nullable error))complete;

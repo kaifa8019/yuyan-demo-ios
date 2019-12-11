@@ -9,7 +9,7 @@ PODS:
   - IQKeyboardManager (6.5.4)
   - Masonry (1.1.0)
   - SVProgressHUD (2.2.5)
-  - YuyanOneClickLogin (1.2.0):
+  - YuyanOneClickLogin (1.2.2):
     - ADMobGenDeviceInfo
     - ADMobGenNetwork
   - YYCache (1.0.4)
@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  YuyanOneClickLogin: 6388b1f36c3548b1fa6b5d1fc217554a8812abc3
+  YuyanOneClickLogin: b46caf8a8e85ed2b0f1026c70c4afe7ed06e8712
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849

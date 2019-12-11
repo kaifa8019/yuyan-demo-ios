@@ -231,10 +231,10 @@
             NSLog(@"%@", error.localizedDescription);
             
             switch (error.code) {
-                case 6669:// 使用其他登录方式, 手动管理dismiss
+                case 700001:// 使用其他登录方式, 手动管理dismiss
                     [weakSelf dismissBtnClick:nil];
                     break;
-                case 6667:// 点击返回按钮, 自动dismiss
+                case 700000:// 点击返回按钮, 自动dismiss
                     break;
                 default:
                     break;
