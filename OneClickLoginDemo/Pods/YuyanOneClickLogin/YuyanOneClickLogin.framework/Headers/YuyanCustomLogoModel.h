@@ -15,14 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// logo图片
 @property (nonatomic, strong, nullable) UIImage *image;
 
-/// logo大小
-@property (nonatomic, assign) CGSize size;
-
 /// logo是否隐藏
 @property (nonatomic, assign) BOOL isHidden;
 
-/// logo相对导航栏底部的Y轴距离
-@property (nonatomic, assign) CGFloat topOffetY;
+/// 构建logo的frame，view布局或布局发生变化时调用，不实现则按默认处理
+@property (nonatomic, copy) CGRect(^frameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
+
+
+@property (nonatomic, assign) CGSize size DEPRECATED_MSG_ATTRIBUTE("请使用 frameBlock");
+@property (nonatomic, assign) CGFloat topOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 frameBlock");
 
 @end
 

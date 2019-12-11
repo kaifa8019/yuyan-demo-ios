@@ -142,9 +142,8 @@
     [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [rightBtn sizeToFit];
+    model.nav.moreView = rightBtn;
     
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    model.nav.moreControl = rightBarItem;
     model.nav.title = [[NSAttributedString alloc] initWithString:@"一键登录/注册"
                                                       attributes:@{
                                                           NSForegroundColorAttributeName: UIColor.blackColor,

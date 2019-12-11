@@ -30,9 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getTokenWithPhone:(NSString *)phone complete:(void (^)(NSString *token, NSError * _Nullable error))complete;
 
-/// 请使用 -getTokenWithPhone: timeout: complete:
-- (void)getTokenWithPhone:(NSString *)phone Timeout:(NSTimeInterval )timeout complete:(void (^)(NSString *token, NSError * _Nullable error))complete NS_DEPRECATED_IOS(2_0,7_0, "请使用 -getTokenWithPhone: complete:");
-
 @end
 
 NS_ASSUME_NONNULL_END

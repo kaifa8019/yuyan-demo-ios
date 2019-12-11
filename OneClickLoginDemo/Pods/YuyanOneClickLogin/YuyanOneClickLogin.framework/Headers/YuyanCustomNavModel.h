@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YuyanCustomNavModel : NSObject
 
+/// 导航栏是否隐藏
+@property (nonatomic, assign) BOOL isHidden;
+
 /// 导航栏主题色, 默认[UIColor whiteColor]
 @property (nonatomic, strong) UIColor *color;
 
@@ -21,11 +24,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏返回图片
 @property (nonatomic, strong) UIImage *backImage;
 
-/// 导航栏右侧自定义控件，UIBarButtonItem
-@property (nonatomic, strong, nullable) UIBarButtonItem *moreControl;
-
 /// 是否隐藏授权页导航栏返回按钮，默认不隐藏
 @property (nonatomic, assign) BOOL hideBackItem;
+
+/// 导航栏右侧自定义控件，可以在创建该VIEW的时候添加手势操作，或者创建按钮或其他赋值给VIEW
+@property (nonatomic, strong) UIView *moreView;
+
+/// 构建导航栏返回按钮的frame，view布局或布局发生变化时调用，不实现则按默认处理
+@property (nonatomic, copy) CGRect(^backButtonFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
+/// 构建导航栏标题的frame，view布局或布局发生变化时调用，不实现则按默认处理
+@property (nonatomic, copy) CGRect(^titleFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
+/// 构建导航栏右侧more view的frame，view布局或布局发生变化时调用，不实现则按默认处理
+@property (nonatomic, copy) CGRect(^moreViewFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
 @end
 

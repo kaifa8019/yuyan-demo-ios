@@ -11,62 +11,112 @@
 #import "YuyanCustomNavModel.h"
 #import "YuyanCustomLogoModel.h"
 #import "YuyanCustomAgreementModel.h"
+#import "YuyanCustomAlertModel.h"
+#import "YuyanCustomSloganModel.h"
+#import "YuyanCustomLoginBtnModel.h"
+
+typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
+    YuyanPresentationDirection_Bottom = 0,
+    YuyanPresentationDirection_Right,
+    YuyanPresentationDirection_Top,
+    YuyanPresentationDirection_Left,
+};
 
 @interface YuyanCustomModel : NSObject
 
-/// 请使用 [YuyanBaseConfig timeoutLimit]
-@property (nonatomic, assign) NSTimeInterval timeout NS_DEPRECATED_IOS(2_0,7_0, "请使用 [YuyanBaseConfig timeoutLimit]");
+#pragma mark - 全屏、弹窗模式设置
+/**
+ *  授权页面中，渲染并显示所有控件的view，称content view，不实现该block默认为全屏模式
+ *  实现弹窗的方案 x > 0 || y > 0 width < 屏幕宽度 || height < 屏幕高度
+ */
+@property (nonatomic, copy) CGRect(^contentViewFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
-/// 导航栏设置
+#pragma mark - 竖屏、横屏模式设置
+/// 屏幕是否支持旋转方向，默认UIInterfaceOrientationMaskPortrait，注意：在刘海屏，UIInterfaceOrientationMaskPortraitUpsideDown属性慎用！
+@property (nonatomic, assign) UIInterfaceOrientationMask supportedInterfaceOrientations;
+
+#pragma mark - 弹窗模式属性
+@property (nonatomic, strong) YuyanCustomAlertModel *alert;
+
+#pragma mark - 导航栏（只对全屏模式有效）
+/// 导航栏设置（只对全屏模式有效）
 @property (nonatomic, strong) YuyanCustomNavModel *nav;
 
-@property (nonatomic, strong) UIColor *navColor NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.color");
-@property (nonatomic, copy) NSAttributedString *navTitle NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.title");
-@property (nonatomic, strong) UIImage *navBackImage NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.backImage");
-@property (nonatomic, strong) UIBarButtonItem *navMoreControl NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.moreControl");
-@property (nonatomic, assign) BOOL hideNavBackItem NS_DEPRECATED_IOS(2_0,7_0, "请使用 .nav.hideBackItem");
+#pragma mark - 全屏、弹窗模式通用属性
+/// 授权页弹出方向，默认YuyanPresentationDirection_Bottom
+@property (nonatomic, assign) YuyanPresentationDirection presentDirection;
 
+#pragma mark - 状态栏
+/// 状态栏是否隐藏，默认NO
+@property (nonatomic, assign) BOOL prefersStatusBarHidden;
+/// 状态栏主题风格，默认UIStatusBarStyleDefault
+@property (nonatomic, assign) UIStatusBarStyle preferredStatusBarStyle;
+
+#pragma mark - logo图
 /// logo图设置
 @property (nonatomic, strong) YuyanCustomLogoModel *logo;
 
-@property (nonatomic, strong) UIImage *logoImage NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.image");
-@property (nonatomic, assign) CGSize logoSize NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.size");
-@property (nonatomic, assign) BOOL logoIsHidden NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.isHidden");
-@property (nonatomic, assign) CGFloat logoTopOffetY NS_DEPRECATED_IOS(2_0,7_0, "请使用 .logo.topOffetY");
+#pragma mark - slogan文案
+/// slogan文案设置
+@property (nonatomic, strong) YuyanCustomSloganModel *slogan;
 
-// slogan
-@property (nonatomic, copy) NSAttributedString *sloganText; // slogan文案，内容、字体、大小、颜色
-@property (nonatomic, assign) BOOL sloganIsHidden; // slogan是否隐藏
-@property (nonatomic, assign) CGFloat sloganTopOffetY; // slogan相对导航栏底部的Y轴距离
+@property (nonatomic, copy) NSAttributedString *sloganText DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.text");
+@property (nonatomic, assign) BOOL sloganIsHidden DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.isHidden");
+@property (nonatomic, assign) CGFloat sloganTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.frameBlock");
 
-// 号码
+#pragma mark - 号码文案
+/// 号码颜色设置
 @property (nonatomic, strong) UIColor *numberColor;
+/// 号码字体大小设置，大小小于16则不生效
 @property (nonatomic, strong) UIFont *numberFont;
-@property (nonatomic, assign) CGFloat numberTopOffetY; // number相对导航栏底部的Y轴距离
+/**
+ *  构建号码的frame，view布局或布局发生变化时调用，只有x、y生效，不实现则按默认处理，
+ *  注：设置不能超出父视图 content view
+ */
+@property (nonatomic, copy) CGRect(^numberFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
-// 登录
-@property (nonatomic, strong) NSAttributedString *loginBtnText; // loginBtn文案
-@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs; //loginBtn背景图片组，高度50.0pt，@[激活状态的图片,失效状态的图片,高亮状态的图片]
-@property (nonatomic, assign) CGFloat loginBtnTopOffetY; // loginBtn相对导航栏底部的Y轴距离
-@property (nonatomic, assign) CGFloat loginBtnHeight; // loginBtn高度，必须大于40.0pt
-@property (nonatomic, assign) CGFloat loginBtnLRPadding; // 按钮左右屏幕边距，按钮的宽度必须大于屏幕的一半
+@property (nonatomic, assign) CGFloat numberTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .numberFrameBlock");
 
+#pragma mark - 登录按钮设置
+/// 登录按钮设置
+@property (nonatomic, strong) YuyanCustomLoginBtnModel *loginBtn;
+
+@property (nonatomic, strong) NSAttributedString *loginBtnText DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.text");
+@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.bgImgs");
+@property (nonatomic, assign) CGFloat loginBtnTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
+@property (nonatomic, assign) CGFloat loginBtnHeight DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
+@property (nonatomic, assign) CGFloat loginBtnLRPadding DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
+
+#pragma mark - 协议设置
 /// 协议设置
 @property (nonatomic, strong) YuyanCustomAgreementModel *agreement;
 
-@property (nonatomic, copy) NSArray<UIImage *> *checkBoxImages NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.images");
-@property (nonatomic, assign) BOOL checkBoxIsChecked NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.isChecked");
-@property (nonatomic, copy) NSArray<NSString *> *privacyOne NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.privacyOne");
-@property (nonatomic, copy) NSArray<NSString *> *privacyTwo NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.privacyTwo");
-@property (nonatomic, copy) NSArray<UIColor *> *privacyColors NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.colors");
-@property (nonatomic, assign) CGFloat privacyBottomOffetY NS_DEPRECATED_IOS(2_0,7_0, "请使用 .agreement.bottomOffetY");
+#pragma mark - 切换到其他方式
+/// changeBtn标题，内容、字体、大小、颜色
+@property (nonatomic, copy) NSAttributedString *changeBtnTitle;
+/// changeBtn是否隐藏
+@property (nonatomic, assign) BOOL changeBtnIsHidden;
+/// 构建changeBtn的frame，view布局或布局发生变化时调用，不实现则按默认处理
+@property (nonatomic, copy) CGRect(^changeBtnFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
-// 切换到其他方式
-@property (nonatomic, copy) NSAttributedString *changeBtnTitle; // changeBtn标题，内容、字体、大小、颜色
-@property (nonatomic, assign) BOOL changeBtnIsHidden; // changeBtn是否隐藏
-@property (nonatomic, assign) CGFloat changeBtnTopOffetY; // changeBtn相对导航栏底部的Y轴距离
+@property (nonatomic, assign) CGFloat changeBtnTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .changeBtnFrameBlock");
 
-// 其他控件自定义block
+// 自定义控件添加，注意：自定义视图的创建初始化和添加到父视图，都需要在主线程！！
 @property (nonatomic,copy) void(^customViewBlock)(UIView *superCustomView);
+
+/**
+ *  每次授权页布局完成时会调用该block，可以在该block实现里面可设置自定义添加控件的frame
+ *  @param  screenSize 屏幕的size
+ *  @param  contentViewFrame content view的frame，
+ *  @param  navFrame 导航栏的frame，仅全屏时有效
+ *  @param  titleBarFrame 标题栏的frame，仅弹窗时有效
+ *  @param  logoFrame logo图片的frame
+ *  @param  sloganFrame slogan的frame
+ *  @param  numberFrame 号码栏的frame
+ *  @param  loginFrame 登录按钮的frame
+ *  @param  changeBtnFrame 切换到其他方式按钮的frame
+ *  @param  privacyFrame 协议整体（包括checkBox）的frame
+*/
+@property (nonatomic, copy) void(^customViewLayoutBlock)(CGSize screenSize, CGRect contentViewFrame, CGRect navFrame, CGRect titleBarFrame, CGRect logoFrame, CGRect sloganFrame, CGRect numberFrame, CGRect loginFrame, CGRect changeBtnFrame, CGRect privacyFrame);
 
 @end

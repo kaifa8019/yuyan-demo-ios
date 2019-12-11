@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-OneClickLoginDemo/Pods-OneClickLoginDemo-resources.sh
-${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle
 ${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/YuyanOneClickLogin/YuyanOneClickLogin.bundle
