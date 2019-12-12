@@ -10,7 +10,6 @@
 		CC7046D77B63412BB32F134F /* libPods-OneClickLoginDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A258AE13672A0558B54FB3E9 /* libPods-OneClickLoginDemo.a */; };
 		E70A002923039CF1007C6B02 /* SuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A002823039CF1007C6B02 /* SuccessViewController.m */; };
 		E70A002C23039D0E007C6B02 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A002B23039D0E007C6B02 /* ErrorViewController.m */; };
-		E70A002F2303B373007C6B02 /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A002E2303B373007C6B02 /* TimeView.m */; };
 		E717477023052935000E158B /* icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E717476F23052935000E158B /* icon-1024.png */; };
 		E727AE922320E155006BC8E8 /* NumberCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E727AE912320E155006BC8E8 /* NumberCheckViewController.m */; };
 		E74D976C230294BC0023AD8C /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74D976B230294BC0023AD8C /* Image.xcassets */; };
@@ -30,8 +29,6 @@
 		E70A002823039CF1007C6B02 /* SuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuccessViewController.m; sourceTree = "<group>"; };
 		E70A002A23039D0E007C6B02 /* ErrorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
 		E70A002B23039D0E007C6B02 /* ErrorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
-		E70A002D2303B373007C6B02 /* TimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
-		E70A002E2303B373007C6B02 /* TimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
 		E717476F23052935000E158B /* icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
 		E727AE902320E155006BC8E8 /* NumberCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumberCheckViewController.h; sourceTree = "<group>"; };
 		E727AE912320E155006BC8E8 /* NumberCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberCheckViewController.m; sourceTree = "<group>"; };
@@ -113,8 +110,6 @@
 				E7591261230132D30098348E /* AppDelegate.m */,
 				E7591263230132D30098348E /* ViewController.h */,
 				E7591264230132D30098348E /* ViewController.m */,
-				E70A002D2303B373007C6B02 /* TimeView.h */,
-				E70A002E2303B373007C6B02 /* TimeView.m */,
 				E70A002723039CF1007C6B02 /* SuccessViewController.h */,
 				E70A002823039CF1007C6B02 /* SuccessViewController.m */,
 				E70A002A23039D0E007C6B02 /* ErrorViewController.h */,
@@ -251,7 +246,6 @@
 				E7591270230132D40098348E /* main.m in Sources */,
 				E70A002923039CF1007C6B02 /* SuccessViewController.m in Sources */,
 				E7591262230132D30098348E /* AppDelegate.m in Sources */,
-				E70A002F2303B373007C6B02 /* TimeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

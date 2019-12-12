@@ -12,7 +12,6 @@
 #import <Masonry/Masonry.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
-#import "TimeView.h"
 #import "SuccessViewController.h"
 #import "ErrorViewController.h"
 #import "NumberCheckViewController.h"
@@ -21,14 +20,22 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) YuyanCustomModel *baseModel;
+@property (nonatomic, strong) YuyanCustomModel *fullScreenAndSpinModel;
+@property (nonatomic, strong) YuyanCustomModel *alertModel;
+@property (nonatomic, strong) YuyanCustomModel *alertAndSpinModel;
 @property (nonatomic, strong) YuyanOneClickLoginHandler *handler;
 
 @property (nonatomic, strong) ADMobNetworkClient *networkRequest;
 
+@property (nonatomic, strong) UIImageView *topImgv;
+@property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UIButton *loginBtn;
+@property (nonatomic, strong) UIButton *fullScreenAndSpinBtn;
+@property (nonatomic, strong) UIButton *alertBtn;
+@property (nonatomic, strong) UIButton *alertAndSpinBtn;
+
 @property (nonatomic, strong) UIView *thirdView;
 
-@property (nonatomic, weak) TimeView *timeView;
 @property (nonatomic, assign) double stTime;
 @end
 
@@ -38,31 +45,35 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CGFloat slfWidth = self.view.frame.size.width;
+    [self.view addSubview:self.topImgv];
     
-    
-    UIImageView *topImgv = [[UIImageView alloc] init];
-    topImgv.frame = CGRectMake(0, 44,
-                               slfWidth, slfWidth/3*2);
-    topImgv.animationImages = @[[UIImage imageNamed:@"A"], [UIImage imageNamed:@"B"], [UIImage imageNamed:@"C"]];
-    topImgv.animationDuration = 2;
-    [topImgv startAnimating];
-    [self.view addSubview:topImgv];
-    
-    UILabel *titleLab = [[UILabel alloc] init];
-    titleLab.font = [UIFont fontWithName:@"PingFangSC-Medium" size:20];
-    titleLab.text = @"无需输入 一键快速登录";
-    [self.view addSubview:titleLab];
-    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(topImgv.mas_bottom).offset(24);
+    [self.view addSubview:self.titleLab];
+    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topImgv.mas_bottom).offset(24);
         make.left.mas_equalTo(15);
     }];
     
     [self.view addSubview:self.loginBtn];
-    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(titleLab.mas_bottom).offset(26);
-        make.size.mas_equalTo(CGSizeMake(140, 40));
-        make.centerX.mas_equalTo(0);
+    
+    [self.view addSubview:self.fullScreenAndSpinBtn];
+    [self.fullScreenAndSpinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.loginBtn);
+        make.left.equalTo(self.loginBtn.mas_right).offset(30);
+        make.size.equalTo(self.loginBtn);
+    }];
+    
+    [self.view addSubview:self.alertBtn];
+    [self.alertBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.loginBtn);
+        make.top.equalTo(self.loginBtn.mas_bottom).offset(8);
+        make.size.equalTo(self.loginBtn);
+    }];
+    
+    [self.view addSubview:self.alertAndSpinBtn];
+    [self.alertAndSpinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.alertBtn);
+        make.left.equalTo(self.fullScreenAndSpinBtn);
+        make.size.equalTo(self.loginBtn);
     }];
     
     UIButton *btnCheck = [[UIButton alloc] init];
@@ -73,8 +84,8 @@
     [btnCheck addTarget:self action:@selector(checkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCheck];
     [btnCheck mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.loginBtn.mas_bottom).offset(8);
-        make.centerX.mas_equalTo(0);
+        make.top.equalTo(self.alertBtn.mas_bottom).offset(8);
+        make.centerX.equalTo(self.alertBtn.mas_right).offset(15);
         make.size.equalTo(self.loginBtn);
     }];
     
@@ -85,14 +96,9 @@
     [self.view addSubview:tipLab];
     [tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(btnCheck.mas_bottom).offset(8);
-        make.centerX.mas_equalTo(0);
+        make.centerX.equalTo(btnCheck);
         make.height.mas_equalTo(17);
     }];
-    
-    TimeView *timeView = [[TimeView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    timeView.userInteractionEnabled = NO;
-    [[UIApplication sharedApplication].delegate.window addSubview:timeView];
-    self.timeView = timeView;
     
     __weak typeof(self) weakSelf = self;
     [self.handler prepareWithAppID:appID complete:^(NSError * _Nonnull error) {
@@ -104,6 +110,28 @@
         NSLog(@"%@", error.localizedDescription);
         [weakSelf showErrorVCWithCode:error.code message:error.localizedDescription];
     }];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGFloat selfWidth = self.view.frame.size.width;
+    CGFloat selfHeight = self.view.frame.size.height;
+    CGRect rct = CGRectZero;
+    
+    if (selfWidth < selfHeight) {
+        rct = self.loginBtn.frame;
+        rct.origin.y = CGRectGetMaxY(self.titleLab.frame) + 26;
+        rct.origin.x = (selfWidth - rct.size.width*2 - 30)/2;
+        self.loginBtn.frame = rct;
+        
+        return;
+    }
+    
+    rct = self.loginBtn.frame;
+    rct.origin.y = CGRectGetMaxY(self.titleLab.frame) - 250;
+    rct.origin.x = CGRectGetMaxX(self.topImgv.frame) + 20;
+    self.loginBtn.frame = rct;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,7 +156,7 @@
                                     }
                                     
                                     SuccessViewController *sucessVC = [[SuccessViewController alloc] init];
-                                    sucessVC.preTime = [[NSDate date] timeIntervalSince1970] - self.timeView.startTime;
+                                    sucessVC.preTime = [[NSDate date] timeIntervalSince1970] - self.stTime;
                                     sucessVC.prePhone = data;
                                     
                                     [self.navigationController pushViewController:sucessVC animated:YES];
@@ -154,16 +182,75 @@
     return _handler;
 }
 
+- (UIImageView *)topImgv {
+    if (_topImgv) return _topImgv;
+    
+    CGFloat width = MIN(self.view.frame.size.width, self.view.frame.size.height);
+    _topImgv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, width, width/3*2)];
+    _topImgv.animationImages = @[[UIImage imageNamed:@"A"], [UIImage imageNamed:@"B"], [UIImage imageNamed:@"C"]];
+    _topImgv.animationDuration = 2;
+    [_topImgv startAnimating];
+    return _topImgv;
+}
+
+- (UILabel *)titleLab {
+    if (_titleLab) return _titleLab;
+    
+    _titleLab = [[UILabel alloc] init];
+    _titleLab.font = [UIFont fontWithName:@"PingFangSC-Medium" size:20];
+    _titleLab.text = @"无需输入 一键快速登录";
+    return _titleLab;
+}
+
 - (UIButton *)loginBtn {
     if (!_loginBtn) {
-        _loginBtn = [[UIButton alloc] init];
+        _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 160, 40)];
         self.loginBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         self.loginBtn.backgroundColor = [UIColor colorWithRed:64/255.0 green:112/255.0 blue:244/255.0 alpha:1];
-        [self.loginBtn setTitle:@"一键登录/注册" forState:UIControlStateNormal];
+        [self.loginBtn setTitle:@"一键登录(全屏)" forState:UIControlStateNormal];
         self.loginBtn.layer.cornerRadius = 4;
         [self.loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginBtn;
+}
+
+- (UIButton *)fullScreenAndSpinBtn {
+    if (_fullScreenAndSpinBtn) return _fullScreenAndSpinBtn;
+    
+    _fullScreenAndSpinBtn = [[UIButton alloc] init];
+    _fullScreenAndSpinBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    _fullScreenAndSpinBtn.backgroundColor = [UIColor colorWithRed:64/255.0 green:112/255.0 blue:244/255.0 alpha:1];
+    [_fullScreenAndSpinBtn setTitle:@"一键登录(全屏+旋转)" forState:UIControlStateNormal];
+    _fullScreenAndSpinBtn.layer.cornerRadius = 4;
+    [_fullScreenAndSpinBtn addTarget:self action:@selector(fullScreenAndSpinBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return _fullScreenAndSpinBtn;
+}
+
+- (UIButton *)alertBtn {
+    if (_alertBtn) return _alertBtn;
+    
+    _alertBtn = [[UIButton alloc] init];
+    _alertBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    _alertBtn.backgroundColor = [UIColor colorWithRed:64/255.0 green:112/255.0 blue:244/255.0 alpha:1];
+    [_alertBtn setTitle:@"一键登录(弹窗)" forState:UIControlStateNormal];
+    _alertBtn.layer.cornerRadius = 4;
+    [_alertBtn addTarget:self action:@selector(alertBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return _alertBtn;
+}
+
+- (UIButton *)alertAndSpinBtn {
+    if (_alertAndSpinBtn) return _alertAndSpinBtn;
+    
+    _alertAndSpinBtn = [[UIButton alloc] init];
+    _alertAndSpinBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    _alertAndSpinBtn.backgroundColor = [UIColor colorWithRed:64/255.0 green:112/255.0 blue:244/255.0 alpha:1];
+    [_alertAndSpinBtn setTitle:@"一键登录(弹窗+旋转)" forState:UIControlStateNormal];
+    _alertAndSpinBtn.layer.cornerRadius = 4;
+    [_alertAndSpinBtn addTarget:self action:@selector(alertAndSpinBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return _alertAndSpinBtn;
 }
 
 - (UIView *)thirdView {
@@ -281,7 +368,6 @@
         }
         return CGRectMake(x, y, width, 40);
     };
-    self.timeView.loginStr = model.loginBtn.text.string;
     
     // 其他登录方式
     model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换登录方式" attributes:@{
@@ -306,8 +392,6 @@
     // 自定义View
     __weak typeof(self) weakSelf = self;
     model.customViewBlock = ^(UIView * _Nonnull superCustomView) {
-        weakSelf.timeView.tsView = superCustomView;
-        
         [superCustomView addSubview:weakSelf.thirdView];
     };
     
@@ -325,11 +409,84 @@
     return model;
 }
 
+- (YuyanCustomModel *)fullScreenAndSpinModel {
+   YuyanCustomModel *model = self.baseModel;
+    model.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
+    return model;
+}
+
+- (YuyanCustomModel *)alertModel {
+    YuyanCustomModel *model = self.baseModel;
+    
+    // 弹窗设置
+    model.contentViewFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat width = MIN(screenSize.width, screenSize.height) - 60;
+        CGFloat x = (screenSize.width - width)/2;
+        CGFloat y = 150;
+        if (screenSize.width > screenSize.height) {
+            y -= 143;
+        }
+        return CGRectMake(x, y, width, 400);
+    };
+    
+    model.logo.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - 79)/2 - 90;
+        CGFloat y = 10;
+        return CGRectMake(x, y, 79, 79);
+    };
+    
+    model.numberFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2 + 60;
+        CGFloat y = 30;
+        return CGRectMake(x, y, EOF, EOF);
+    };
+    
+    model.slogan.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2 + 60;
+        return CGRectMake(x, 60, superViewSize.width, 17);
+    };
+    
+    model.loginBtn.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat width = MIN(superViewSize.width, superViewSize.height) - 16*2;
+        CGFloat x = (superViewSize.width - width)/2;
+        CGFloat y = 99;
+        return CGRectMake(x, y, width, 40);
+    };
+    
+    model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2;
+        CGFloat y = 155;
+        return CGRectMake(x, y, frame.size.width, frame.size.height);
+    };
+    
+    __weak typeof(self) weakSelf = self;
+    model.customViewLayoutBlock = ^(CGSize screenSize, CGRect contentViewFrame, CGRect navFrame, CGRect titleBarFrame, CGRect logoFrame, CGRect sloganFrame, CGRect numberFrame, CGRect loginFrame, CGRect changeBtnFrame, CGRect privacyFrame) {
+        UIView *thirdView = weakSelf.thirdView;
+        CGFloat x = (contentViewFrame.size.width - thirdView.frame.size.width)/2;
+        CGFloat y = 190;
+        thirdView.frame = CGRectMake(x, y, thirdView.frame.size.width, thirdView.frame.size.height);
+    };
+    
+    model.agreement.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2;
+        CGFloat y = 310;
+        return CGRectMake(x, y, frame.size.width, frame.size.height);
+    };
+    
+    model.alert.cornerRadiusArray = @[@(4), @(4), @(4), @(4)];
+    return model;
+}
+
+- (YuyanCustomModel *)alertAndSpinModel {
+    YuyanCustomModel *model = self.alertModel;
+    model.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
+    return model;
+}
 
 #pragma mark - Action
-- (void)loginBtnClick:(UIButton *)sender {
+- (void)getLoginTokenWithModel:(YuyanCustomModel *)model {
     __weak typeof(self) weakSelf = self;
-    [self.handler getLoginTokenWithModel:self.baseModel complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
+    [self.handler getLoginTokenWithModel:model complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
         if (!error) {
             [self requestPhoneWithToken:token];
             return;
@@ -349,8 +506,28 @@
     }];
 }
 
+- (void)loginBtnClick:(UIButton *)sender { //一键登录(全屏)
+    [self getLoginTokenWithModel:self.baseModel];
+    self.stTime = [[NSDate date] timeIntervalSince1970];
+}
+
+- (void)fullScreenAndSpinBtnClick:(UIButton *)sender { //一键登录(全屏+旋转)
+    [self getLoginTokenWithModel:self.fullScreenAndSpinModel];
+    self.stTime = [[NSDate date] timeIntervalSince1970];
+}
+
+- (void)alertBtnClick:(UIButton *)sender { //一键登录(弹窗)
+    [self getLoginTokenWithModel:self.alertModel];
+    self.stTime = [[NSDate date] timeIntervalSince1970];
+}
+
+- (void)alertAndSpinBtnClick:(UIButton *)sender { //一键登录(弹窗+旋转)
+    [self getLoginTokenWithModel:self.alertAndSpinModel];
+    self.stTime = [[NSDate date] timeIntervalSince1970];
+}
+
 - (void)dismissBtnClick:(UIButton *)sender {
-    [self  dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
