@@ -20,11 +20,13 @@
 #define appID @"000000000"
 
 @interface ViewController ()
+@property (nonatomic, strong) YuyanCustomModel *baseModel;
 @property (nonatomic, strong) YuyanOneClickLoginHandler *handler;
 
 @property (nonatomic, strong) ADMobNetworkClient *networkRequest;
 
 @property (nonatomic, strong) UIButton *loginBtn;
+@property (nonatomic, strong) UIView *thirdView;
 
 @property (nonatomic, weak) TimeView *timeView;
 @property (nonatomic, assign) double stTime;
@@ -91,6 +93,17 @@
     timeView.userInteractionEnabled = NO;
     [[UIApplication sharedApplication].delegate.window addSubview:timeView];
     self.timeView = timeView;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.handler prepareWithAppID:appID complete:^(NSError * _Nonnull error) {
+        if (!error) {
+            NSLog(@"初始化成功");
+            return;
+        }
+        
+        NSLog(@"%@", error.localizedDescription);
+        [weakSelf showErrorVCWithCode:error.code message:error.localizedDescription];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -132,122 +145,6 @@
     [self.navigationController pushViewController:errorVC animated:YES];
 }
 
-- (void)getLoginToken {
-    YuyanCustomModel *model = [[YuyanCustomModel alloc] init];
-    
-    //自定义nav right btn
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn addTarget:self action:@selector(dismissBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [rightBtn setTitle:@"跳过" forState:UIControlStateNormal];
-    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
-    [rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [rightBtn sizeToFit];
-    model.nav.moreView = rightBtn;
-    
-    model.nav.title = [[NSAttributedString alloc] initWithString:@"一键登录/注册"
-                                                      attributes:@{
-                                                          NSForegroundColorAttributeName: UIColor.blackColor,
-                                                          NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:16]
-                                                      }];
-    
-    // logo图片
-    UIImage *logoImg = [UIImage imageNamed:@"icon-1024"];
-    logoImg = [logoImg yy_imageByResizeToSize:CGSizeMake(79, 79)];
-    logoImg = [logoImg yy_imageByRoundCornerRadius:79.0/2];
-    model.logo.size = CGSizeMake(79, 79);
-    model.logo.image = logoImg;
-    model.logo.topOffetY = 49;
-    
-    // 号码
-    model.numberColor = [UIColor colorWithRed:41/255.0 green:41/255.0 blue:41/255.0 alpha:1];
-    model.numberFont = [UIFont systemFontOfSize:16];
-    model.numberTopOffetY = 176;
-    
-    // 自定义文案
-    model.sloganIsHidden = NO;
-//    model.sloganText = [[NSAttributedString alloc] initWithString:@"中国__提供认证服务" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1], NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:12]}];
-    model.sloganTopOffetY = 208;
-    
-    // 登录按钮
-    model.loginBtnText = [[NSAttributedString alloc] initWithString:@"本机号码一键登录"
-                                                         attributes:@{
-                                                             NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                             NSFontAttributeName: [UIFont systemFontOfSize:20.0],
-                                                         }];
-    model.loginBtnTopOffetY = 241;
-    self.timeView.loginStr = model.loginBtnText.string;
-    
-    // 其他登录方式
-    model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换登录方式" attributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:16.0]}];
-    model.changeBtnTopOffetY = 297;
-    
-    // 自定义协议
-    model.agreement.privacyOne = @[@"APP用户协议1", @"https://www.taobao.com/"];
-    model.agreement.privacyTwo = @[@"APP协议2", @"https://www.baidu.com/"];
-    model.agreement.colors = @[UIColor.darkTextColor,UIColor.blueColor];
-    
-    // 自定义View
-    __weak ViewController *weakSelf = self;
-    model.customViewBlock = ^(UIView * _Nonnull superCustomView) {
-        weakSelf.timeView.tsView = superCustomView;
-        
-        UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(0, 418, self.view.frame.size.width, 100)];
-        [superCustomView addSubview:thirdView];
-        
-        UILabel *titleLab = [[UILabel alloc] init];
-        titleLab.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:12];
-        titleLab.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
-        titleLab.text = @"快捷登录";
-        [superCustomView addSubview:titleLab];
-        [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(0);
-            make.centerX.mas_equalTo(0);
-            make.height.mas_equalTo(17);
-        }];
-        
-        CGSize btnSiz = CGSizeMake(50, 70);
-        NSArray *imgNames = @[@"QQ", @"weibo", @"other"];
-        NSArray *titles = @[@"QQ", @"微薄", @"账号"];
-        CGFloat btnGap = 19;
-        CGFloat nowX = thirdView.frame.size.width/2 - btnSiz.width*1.5 - btnGap;
-        for (int i = 0; i < imgNames.count; ++i) {
-            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(nowX, 30, btnSiz.width, btnSiz.height)];
-            btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:12];
-            [btn setTitleColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] forState:UIControlStateNormal];
-            [btn setTitle:titles[i] forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:imgNames[i]] forState:UIControlStateNormal];
-            btn.imageEdgeInsets = UIEdgeInsetsMake(-27, 0, 0, -24);
-            btn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, -60, 0);
-            [btn addTarget:self action:@selector(thirdBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn.tag = i;
-            
-            nowX += btnSiz.width + btnGap;
-            [thirdView addSubview:btn];
-        }
-    };
-    
-    [self.handler getLoginTokenWithModel:model complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"%@", error.localizedDescription);
-            
-            switch (error.code) {
-                case 700001:// 使用其他登录方式, 手动管理dismiss
-                    [weakSelf dismissBtnClick:nil];
-                    break;
-                case 700000:// 点击返回按钮, 自动dismiss
-                    break;
-                default:
-                    break;
-            }
-            
-            [weakSelf showErrorVCWithCode:error.code message:error.localizedDescription];
-            return;
-        }
-        
-        [self requestPhoneWithToken:token];
-    }];
-}
-
 #pragma mark - Lazy
 - (YuyanOneClickLoginHandler *)handler {
     if (!_handler) {
@@ -269,17 +166,186 @@
     return _loginBtn;
 }
 
+- (UIView *)thirdView {
+    if (_thirdView) return _thirdView;
+    
+    _thirdView = [[UIView alloc] initWithFrame:CGRectMake(0, 418, self.view.frame.size.width, 100)];
+    
+    UILabel *titleLab = [[UILabel alloc] init];
+    titleLab.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:12];
+    titleLab.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+    titleLab.text = @"快捷登录";
+    [_thirdView addSubview:titleLab];
+    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.centerX.mas_equalTo(0);
+        make.height.mas_equalTo(17);
+    }];
+    
+    CGSize btnSiz = CGSizeMake(50, 70);
+    NSArray *imgNames = @[@"QQ", @"weibo", @"other"];
+    NSArray *titles = @[@"QQ", @"微薄", @"账号"];
+    CGFloat btnGap = 19;
+    CGFloat nowX = _thirdView.frame.size.width/2 - btnSiz.width*1.5 - btnGap;
+    for (int i = 0; i < imgNames.count; ++i) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(nowX, 30, btnSiz.width, btnSiz.height)];
+        btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:12];
+        [btn setTitleColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] forState:UIControlStateNormal];
+        [btn setTitle:titles[i] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:imgNames[i]] forState:UIControlStateNormal];
+        btn.imageEdgeInsets = UIEdgeInsetsMake(-27, 0, 0, -24);
+        btn.titleEdgeInsets = UIEdgeInsetsMake(0, -50, -60, 0);
+        [btn addTarget:self action:@selector(thirdBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i;
+        
+        nowX += btnSiz.width + btnGap;
+        [_thirdView addSubview:btn];
+    }
+    
+    return _thirdView;
+}
+
+- (YuyanCustomModel *)baseModel {
+    YuyanCustomModel *model = [[YuyanCustomModel alloc] init];
+    
+    //自定义nav right btn
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn addTarget:self action:@selector(dismissBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setTitle:@"跳过" forState:UIControlStateNormal];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    [rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [rightBtn sizeToFit];
+    model.nav.moreView = rightBtn;
+    
+    model.nav.title = [[NSAttributedString alloc] initWithString:@"一键登录/注册" attributes:@{
+        NSForegroundColorAttributeName: UIColor.blackColor,
+        NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:16]
+    }];
+        
+    // logo图片
+    UIImage *logoImg = [UIImage imageNamed:@"icon-1024"];
+    logoImg = [logoImg yy_imageByResizeToSize:CGSizeMake(79, 79)];
+    logoImg = [logoImg yy_imageByRoundCornerRadius:79.0/2];
+    model.logo.image = logoImg;
+    model.logo.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - 79)/2;
+        CGFloat y = 49;
+        if (screenSize.width > screenSize.height) {
+            x -= 70;
+            y -= 40;
+        }
+        return CGRectMake(x, y, 79, 79);
+    };
+    
+    // 号码文案
+    model.numberColor = [UIColor colorWithRed:41/255.0 green:41/255.0 blue:41/255.0 alpha:1];
+    model.numberFont = [UIFont systemFontOfSize:16];
+    model.numberFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2;
+        CGFloat y = 176;
+        if (screenSize.width > screenSize.height) {
+            x += 55;
+            y -= 150;
+        }
+        return CGRectMake(x, y, EOF, EOF);
+    };
+    
+    // slogan文案
+    model.slogan.isHidden = NO;
+//    model.slogan.text = [[NSAttributedString alloc] initWithString:@"这是一条slogan文案" attributes:@{
+//        NSForegroundColorAttributeName: [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1],
+//        NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:12],
+//    }];
+    model.slogan.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = 0;
+        CGFloat y = 208;
+        if (screenSize.width > screenSize.height) {
+            x += 90;
+            y -= 140;
+        }
+        return CGRectMake(x, y, superViewSize.width, 17);
+    };
+        
+    // 登录按钮
+    model.loginBtn.text = [[NSAttributedString alloc] initWithString:@"本机号码一键登录" attributes:@{
+        NSForegroundColorAttributeName: [UIColor whiteColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:20.0],
+    }];
+    model.loginBtn.frameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat width = MIN(superViewSize.width, superViewSize.height) - 16*2;
+        CGFloat x = (superViewSize.width - width)/2;
+        CGFloat y = 241;
+        if (screenSize.width > screenSize.height) {
+            x -= 15;
+            y -= 126;
+        }
+        return CGRectMake(x, y, width, 40);
+    };
+    self.timeView.loginStr = model.loginBtn.text.string;
+    
+    // 其他登录方式
+    model.changeBtnTitle = [[NSAttributedString alloc] initWithString:@"切换登录方式" attributes:@{
+        NSForegroundColorAttributeName: [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1],
+        NSFontAttributeName: [UIFont systemFontOfSize:16.0],
+    }];
+    model.changeBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = (superViewSize.width - frame.size.width)/2;
+        CGFloat y = 297;
+        if (screenSize.width > screenSize.height) {
+            x += 10;
+            y -= 117;
+        }
+        return CGRectMake(x, y, frame.size.width, frame.size.height);
+    };
+    
+    // 自定义协议
+    model.agreement.privacyOne = @[@"自定义协议1", @"https://github.com/"];
+    model.agreement.privacyTwo = @[@"自定义协议2", @"https://www.baidu.com/"];
+//    model.agreement.colors = @[UIColor.darkTextColor,UIColor.blueColor];
+    
+    // 自定义View
+    __weak typeof(self) weakSelf = self;
+    model.customViewBlock = ^(UIView * _Nonnull superCustomView) {
+        weakSelf.timeView.tsView = superCustomView;
+        
+        [superCustomView addSubview:weakSelf.thirdView];
+    };
+    
+    model.customViewLayoutBlock = ^(CGSize screenSize, CGRect contentViewFrame, CGRect navFrame, CGRect titleBarFrame, CGRect logoFrame, CGRect sloganFrame, CGRect numberFrame, CGRect loginFrame, CGRect changeBtnFrame, CGRect privacyFrame) {
+        UIView *thirdView = weakSelf.thirdView;
+        CGFloat x = (contentViewFrame.size.width - thirdView.frame.size.width)/2;
+        CGFloat y = 418;
+        if (screenSize.width > screenSize.height) {
+            x += 10;
+            y -= 200;
+        }
+        thirdView.frame = CGRectMake(x, y, thirdView.frame.size.width, thirdView.frame.size.height);
+    };
+    
+    return model;
+}
+
+
 #pragma mark - Action
 - (void)loginBtnClick:(UIButton *)sender {
-    __weak ViewController *weakSelf = self;
-    [self.handler prepareWithAppID:appID complete:^(NSError * _Nonnull error) {
-        if (error) {
-            NSLog(@"%@", error.localizedDescription);
-            [weakSelf showErrorVCWithCode:error.code message:error.localizedDescription];
-        } else {
-            NSLog(@"初始化成功");
-            [self getLoginToken];
+    __weak typeof(self) weakSelf = self;
+    [self.handler getLoginTokenWithModel:self.baseModel complete:^(NSString * _Nonnull token, NSError * _Nullable error) {
+        if (!error) {
+            [self requestPhoneWithToken:token];
+            return;
         }
+        
+        switch (error.code) {
+            case 700001: //使用其他登录方式, 手动管理dismiss
+                [weakSelf dismissBtnClick:nil];
+                break;
+            case 700000: //点击返回按钮, 自动dismiss
+                break;
+            default:
+                break;
+        }
+        NSLog(@"%@", error.localizedDescription);
+        [weakSelf showErrorVCWithCode:error.code message:error.localizedDescription];
     }];
 }
 
