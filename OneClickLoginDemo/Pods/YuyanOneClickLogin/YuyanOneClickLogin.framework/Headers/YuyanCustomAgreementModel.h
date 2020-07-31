@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// checkBox图片组，[uncheckedImg,checkedImg]
 @property (nonatomic, copy) NSArray<UIImage *> *images;
 
-/// checkBox是否勾选，默认NO
+/// checkBox是否勾选，默认NO，点击后刷新
 @property (nonatomic, assign) BOOL isChecked;
 
 /// checkBox是否隐藏，默认NO
@@ -71,7 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏返回图片
 @property (nonatomic, strong) UIImage *navBackImage;
 
-@property (nonatomic, assign) CGFloat bottomOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .frameBlock");
+#pragma mark - 点击事件
+/// 点击点击隐私协议, urlStr: 被点击协议的URL
+@property (nonatomic, copy) void (^didClickPrivacy)(NSString *urlStr);
+
+/// 点击checkBox, isSelected: 是否选中
+@property (nonatomic, copy) void (^didClickCheckBox)(BOOL isSelected);
 
 @end
 

@@ -25,13 +25,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL autoHideLoginLoading;
 
 /**
- *  构建登录按钮的frame，view布局或布局发生变化时调用，不实现则按默认处理
+ *  构建登录按钮的frame, view布局或布局发生变化时调用, y坐标基准线为导航栏底部, 不实现则按默认处理
  *  注：不能超出父视图 content view，height不能小于40，width不能小于父视图宽度的一半
  */
 @property (nonatomic, copy) CGRect(^frameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
 /// 手动隐藏一键登录获取登录Token之后的等待动画，默认为自动隐藏，当设置 autoHideLoginLoading = NO 时, 可调用该方法手动隐藏
 - (void)hideLoginLoading;
+
+#pragma mark - 点击事件
+/// 点击登录按钮, isActive: 是否激活
+@property (nonatomic, copy) void (^didClick)(BOOL isActive);
 
 @end
 

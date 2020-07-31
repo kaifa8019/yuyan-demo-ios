@@ -1,17 +1,19 @@
 PODS:
-  - ADMobGenDeviceInfo (1.5.2):
-    - ADMobGenFoundation
-    - ADMobGenLocationManager
-    - ADMobGenNetwork
-  - ADMobGenFoundation (0.8.0)
-  - ADMobGenLocationManager (0.1.1)
-  - ADMobGenNetwork (0.5.2)
-  - IQKeyboardManager (6.5.4)
+  - ADMobGenDeviceInfo (1.8.0):
+    - ADSuyiKit (~> 0.3.0)
+    - ADSuyiLocationManager (~> 0.1.2)
+    - ADSuyiNetwork (~> 0.1.2)
+  - ADSuyiKit (0.3.0.06111)
+  - ADSuyiLocationManager (0.1.2.05261)
+  - ADSuyiNetwork (0.1.2.06111):
+    - ADSuyiKit (~> 0.3.0)
+  - IQKeyboardManager (6.5.5)
   - Masonry (1.1.0)
   - SVProgressHUD (2.2.5)
-  - YuyanOneClickLogin (1.2.2):
+  - YuyanOneClickLogin (1.2.5):
     - ADMobGenDeviceInfo
-    - ADMobGenNetwork
+    - ADSuyiKit
+    - ADSuyiNetwork
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -32,9 +34,9 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - ADMobGenDeviceInfo
-    - ADMobGenFoundation
-    - ADMobGenLocationManager
-    - ADMobGenNetwork
+    - ADSuyiKit
+    - ADSuyiLocationManager
+    - ADSuyiNetwork
     - IQKeyboardManager
     - Masonry
     - SVProgressHUD
@@ -45,19 +47,19 @@ SPEC REPOS:
     - YYWebImage
 
 SPEC CHECKSUMS:
-  ADMobGenDeviceInfo: 7f0adb3dd3bb4b06e3e86fe9f4afabdce95dff0b
-  ADMobGenFoundation: 292a3310f806644c042f45c726f876888689aef4
-  ADMobGenLocationManager: f2b0396d8c1c26e9490725150e3def622f74ccae
-  ADMobGenNetwork: 5a2b334b492d311df0d8b8776fbbb41e6982805f
-  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
+  ADMobGenDeviceInfo: 727bcbf5536df7598542dc82e4a0a2b66717407a
+  ADSuyiKit: 6759b516abf6b84a6f722f9dc0748ef127353cad
+  ADSuyiLocationManager: 4986b8fba88412fbca5d31582bd69ebdce39e6f2
+  ADSuyiNetwork: 572be414570a1561ada11fb1d9ea36f69fc26ac5
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  YuyanOneClickLogin: b46caf8a8e85ed2b0f1026c70c4afe7ed06e8712
+  YuyanOneClickLogin: fd9fe312c7c75f105782c330a688b527f3e0695b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: d8fce81d64ba40f44902fc67392b1bbed709aab1
+PODFILE CHECKSUM: be9bacefb6fe5087aebac7d86a8179380f645efd
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

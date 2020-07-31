@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// logo是否隐藏
 @property (nonatomic, assign) BOOL isHidden;
 
-/// 构建logo的frame，view布局或布局发生变化时调用，不实现则按默认处理
+/// 构建logo的frame, y坐标基准线为导航栏底部, view布局或布局发生变化时调用, 不实现则按默认处理
 @property (nonatomic, copy) CGRect(^frameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
 

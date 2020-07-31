@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
 /// 号码字体大小设置，大小小于16则不生效
 @property (nonatomic, strong) UIFont *numberFont;
 /**
- *  构建号码的frame，view布局或布局发生变化时调用，只有x、y生效，不实现则按默认处理，
+ *  构建号码的frame，view布局或布局发生变化时调用, 只有x、y生效, y坐标基准线为导航栏底部, 不实现则按默认处理
  *  注：设置不能超出父视图 content view
  */
 @property (nonatomic, copy) CGRect(^numberFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
@@ -81,8 +81,6 @@ typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
 /// 登录按钮设置
 @property (nonatomic, strong) YuyanCustomLoginBtnModel *loginBtn;
 
-@property (nonatomic, strong) NSAttributedString *loginBtnText DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.text");
-@property (nonatomic,strong) NSArray<UIImage *> *loginBtnBgImgs DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.bgImgs");
 @property (nonatomic, assign) CGFloat loginBtnTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
 @property (nonatomic, assign) CGFloat loginBtnHeight DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
 @property (nonatomic, assign) CGFloat loginBtnLRPadding DEPRECATED_MSG_ATTRIBUTE("请使用 .loginBtn.frameBlock");
@@ -96,7 +94,7 @@ typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
 @property (nonatomic, copy) NSAttributedString *changeBtnTitle;
 /// changeBtn是否隐藏
 @property (nonatomic, assign) BOOL changeBtnIsHidden;
-/// 构建changeBtn的frame，view布局或布局发生变化时调用，不实现则按默认处理
+/// 构建changeBtn的frame, view布局或布局发生变化时调用, y坐标基准线为导航栏底部, 不实现则按默认处理
 @property (nonatomic, copy) CGRect(^changeBtnFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
 @property (nonatomic, assign) CGFloat changeBtnTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .changeBtnFrameBlock");

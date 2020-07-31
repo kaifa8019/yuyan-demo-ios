@@ -9,14 +9,14 @@
 #import "NumberCheckViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <YuyanOneClickLogin/YuyanOneClickLogin.h>
-#import <ADMobGenNetwork/ADMobNetworkClient.h>
+#import <ADSuyiNetwork/ADSuyiNetworkClient.h>
 #import <Masonry/Masonry.h>
 
 #define appID @"000000000"
 
 @interface NumberCheckViewController ()
 @property (nonatomic, strong) UITextField *phoneTxtField;
-@property (nonatomic, strong) ADMobNetworkClient *checkRequest;
+@property (nonatomic, strong) ADSuyiNetworkClient *checkRequest;
 @end
 
 @implementation NumberCheckViewController
@@ -61,24 +61,24 @@
 }
 
 - (void)requestPhoneCheck:(NSString *)phone token:(NSString *)token {
-    _checkRequest = [[ADMobNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://yuyan.popadshop.com"]];
+    _checkRequest = [[ADSuyiNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://yuyan.popadshop.com"]];
     
     [self.checkRequest POST:@"/test/verifymobile"
                  parameters:@{
-                              @"certificate": token,
-                              } success:^(NSURLSessionDataTask *task, id responseObject) {
-                                  if (responseObject == nil || ![responseObject isKindOfClass:[NSDictionary class]]) {
-                                      responseObject = @{};
-                                  }
-                                  
-                                  if ([responseObject[@"data"] isEqualToString:@"PASS"]) {
-                                      [SVProgressHUD showSuccessWithStatus:responseObject[@"data"]];
-                                  } else {
-                                      [SVProgressHUD showErrorWithStatus:responseObject[@"data"]];
-                                  }
-                              } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                  [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-                              }];
+                     @"certificate": token,
+                 } success:^(NSURLSessionDataTask *task, NSHTTPURLResponse *response, id responseObject) {
+        if (responseObject == nil || ![responseObject isKindOfClass:[NSDictionary class]]) {
+            responseObject = @{};
+        }
+        
+        if ([responseObject[@"data"] isEqualToString:@"PASS"]) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"data"]];
+        } else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"data"]];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSHTTPURLResponse *response, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
 }
 
 #pragma mark - Action

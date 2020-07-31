@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <YuyanOneClickLogin/YuyanOneClickLogin.h>
-#import <ADMobGenNetwork/ADMobNetworkClient.h>
+#import <ADSuyiNetwork/ADSuyiNetworkClient.h>
 #import <Masonry/Masonry.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <YYWebImage/YYWebImage.h>
@@ -25,7 +25,7 @@
 @property (nonatomic, strong) YuyanCustomModel *alertAndSpinModel;
 @property (nonatomic, strong) YuyanOneClickLoginHandler *handler;
 
-@property (nonatomic, strong) ADMobNetworkClient *networkRequest;
+@property (nonatomic, strong) ADSuyiNetworkClient *networkRequest;
 
 @property (nonatomic, strong) UIImageView *topImgv;
 @property (nonatomic, strong) UILabel *titleLab;
@@ -140,30 +140,30 @@
 }
 
 - (void)requestPhoneWithToken:(NSString *)token {
-    _networkRequest = [[ADMobNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://yuyan.popadshop.com"]];
+    _networkRequest = [[ADSuyiNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://yuyan.popadshop.com"]];
     
     [self.networkRequest POST:@"/test/getmobile"
                    parameters:@{
-                                @"certificate": token,
-                                } success:^(NSURLSessionDataTask *task, id responseObject) {
-                                    [self dismissBtnClick:nil];
-                                    
-                                    NSString *data = responseObject[@"data"];
-                                    if (!data.length) {
-                                        NSInteger code = [responseObject[@"code"] integerValue];
-                                        [self showErrorVCWithCode:code message:responseObject[@"msg"]];
-                                        return;
-                                    }
-                                    
-                                    SuccessViewController *sucessVC = [[SuccessViewController alloc] init];
-                                    sucessVC.preTime = [[NSDate date] timeIntervalSince1970] - self.stTime;
-                                    sucessVC.prePhone = data;
-                                    
-                                    [self.navigationController pushViewController:sucessVC animated:YES];
-                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                    [self dismissBtnClick:nil];
-                                    [self showErrorVCWithCode:error.code message:error.localizedDescription];
-                                }];
+                       @"certificate": token,
+                   } success:^(NSURLSessionDataTask *task, NSHTTPURLResponse *response, id responseObject) {
+        [self dismissBtnClick:nil];
+        
+        NSString *data = responseObject[@"data"];
+        if (!data.length) {
+            NSInteger code = [responseObject[@"code"] integerValue];
+            [self showErrorVCWithCode:code message:responseObject[@"msg"]];
+            return;
+        }
+        
+        SuccessViewController *sucessVC = [[SuccessViewController alloc] init];
+        sucessVC.preTime = [[NSDate date] timeIntervalSince1970] - self.stTime;
+        sucessVC.prePhone = data;
+        
+        [self.navigationController pushViewController:sucessVC animated:YES];
+    } failure:^(NSURLSessionDataTask *task, NSHTTPURLResponse *response, NSError *error) {
+        [self dismissBtnClick:nil];
+        [self showErrorVCWithCode:error.code message:error.localizedDescription];
+    }];
 }
 
 - (void)showErrorVCWithCode:(NSInteger)code message:(NSString *)msg {

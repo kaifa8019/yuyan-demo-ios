@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// slogan是否隐藏，默认NO
 @property (nonatomic, assign) BOOL isHidden;
 
-/// 构建slogan的frame，view布局或布局发生变化时调用，不实现则按默认处理
+/// 构建slogan的frame, view布局或布局发生变化时调用, y坐标基准线为导航栏底部, 不实现则按默认处理
 @property (nonatomic, copy) CGRect(^frameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
 
 @end
