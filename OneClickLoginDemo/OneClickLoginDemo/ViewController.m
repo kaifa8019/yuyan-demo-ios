@@ -104,6 +104,9 @@
     [self.handler prepareWithAppID:appID complete:^(NSError * _Nonnull error) {
         if (!error) {
             NSLog(@"初始化成功");
+            
+            // 预请求, 加速后续页面唤醒
+            [YuyanOneClickLoginHandler.shareHandler prepareLoginToken];
             return;
         }
         
