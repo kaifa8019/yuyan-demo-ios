@@ -28,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)prepareWithAppID:(NSString *)appID complete:(void(^_Nullable)(NSError *error))complete;
 
 /*
+ 预取号方法
+ 可在上级页面中调用, 加速后续授权页的唤醒速度
+ */
+- (void)prepareLoginToken;
+
+/*
  使用前需要指定 viewController
  获取成功:
     token 授权字段, error = nil

@@ -60,10 +60,6 @@ typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
 /// slogan文案设置
 @property (nonatomic, strong) YuyanCustomSloganModel *slogan;
 
-@property (nonatomic, copy) NSAttributedString *sloganText DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.text");
-@property (nonatomic, assign) BOOL sloganIsHidden DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.isHidden");
-@property (nonatomic, assign) CGFloat sloganTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .slogan.frameBlock");
-
 #pragma mark - 号码文案
 /// 号码颜色设置
 @property (nonatomic, strong) UIColor *numberColor;
@@ -74,8 +70,6 @@ typedef NS_ENUM(NSUInteger, YuyanPresentationDirection){
  *  注：设置不能超出父视图 content view
  */
 @property (nonatomic, copy) CGRect(^numberFrameBlock)(CGSize screenSize, CGSize superViewSize, CGRect frame);
-
-@property (nonatomic, assign) CGFloat numberTopOffetY DEPRECATED_MSG_ATTRIBUTE("请使用 .numberFrameBlock");
 
 #pragma mark - 登录按钮设置
 /// 登录按钮设置

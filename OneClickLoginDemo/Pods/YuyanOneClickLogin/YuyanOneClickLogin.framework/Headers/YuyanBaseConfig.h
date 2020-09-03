@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YuyanBaseConfig : NSObject
++ (instancetype)new NS_UNAVAILABLE;
++ (instancetype)alloc NS_UNAVAILABLE;
 
 /// SDK版本号
 + (NSString *)sdkVersion;

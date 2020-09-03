@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - main queue
 
+FOUNDATION_EXPORT void ADSuyiAutoAsyncMainBlock(void (^block) (void)) __attribute__((overloadable));
+
 FOUNDATION_EXPORT void ADSuyiAsyncMainBlock(void (^block) (void)) __attribute__((overloadable));
 
 FOUNDATION_EXPORT void ADSuyiDelayAsyncMainBlock(double second, void (^block) (void)) __attribute__((overloadable));

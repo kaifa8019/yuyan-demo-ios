@@ -1,5 +1,5 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/ADMobGenDeviceInfo
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/ADMobGenDeviceInfo/ADMobGenDeviceInfo/Classes" "${PODS_ROOT}/ADSuyiKit/ADSuyiKit/Classes" "${PODS_ROOT}/ADSuyiLocationManager/ADSuyiLocationManager-0.1.2.05261/ios" "${PODS_ROOT}/ADSuyiNetwork/ADSuyiNetwork/Classes"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/ADMobGenDeviceInfo/ADMobGenDeviceInfo/Classes" "${PODS_ROOT}/ADSuyiKit/ADSuyiKit/Classes" "${PODS_ROOT}/ADSuyiLocationManager/ADSuyiLocationManager/Classes" "${PODS_ROOT}/ADSuyiNetwork/ADSuyiNetwork/Classes"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 OTHER_LDFLAGS = $(inherited) -ObjC
 PODS_BUILD_DIR = ${BUILD_DIR}

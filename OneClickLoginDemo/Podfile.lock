@@ -1,16 +1,16 @@
 PODS:
-  - ADMobGenDeviceInfo (1.8.0):
-    - ADSuyiKit (~> 0.3.0)
-    - ADSuyiLocationManager (~> 0.1.2)
-    - ADSuyiNetwork (~> 0.1.2)
-  - ADSuyiKit (0.3.0.06111)
-  - ADSuyiLocationManager (0.1.2.05261)
-  - ADSuyiNetwork (0.1.2.06111):
-    - ADSuyiKit (~> 0.3.0)
-  - IQKeyboardManager (6.5.5)
+  - ADMobGenDeviceInfo (1.8.3.08121):
+    - ADSuyiKit (~> 0.4.0)
+    - ADSuyiLocationManager (~> 0.1.4)
+    - ADSuyiNetwork (~> 0.1.3)
+  - ADSuyiKit (0.4.0.08121)
+  - ADSuyiLocationManager (0.1.4.08121)
+  - ADSuyiNetwork (0.1.3.08121):
+    - ADSuyiKit (~> 0.4.0)
+  - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - SVProgressHUD (2.2.5)
-  - YuyanOneClickLogin (1.2.5):
+  - YuyanOneClickLogin (1.2.7):
     - ADMobGenDeviceInfo
     - ADSuyiKit
     - ADSuyiNetwork
@@ -47,19 +47,19 @@ SPEC REPOS:
     - YYWebImage
 
 SPEC CHECKSUMS:
-  ADMobGenDeviceInfo: 727bcbf5536df7598542dc82e4a0a2b66717407a
-  ADSuyiKit: 6759b516abf6b84a6f722f9dc0748ef127353cad
-  ADSuyiLocationManager: 4986b8fba88412fbca5d31582bd69ebdce39e6f2
-  ADSuyiNetwork: 572be414570a1561ada11fb1d9ea36f69fc26ac5
-  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  ADMobGenDeviceInfo: b513f1340c6b6bcc949e42bde539cc76f0dbdce5
+  ADSuyiKit: a023202a302424d641962c7e097b4944b7ac8e26
+  ADSuyiLocationManager: 160cb570704b9a2f2eef10529f97d7a7bfcb52f3
+  ADSuyiNetwork: a0efd7ab80991268566813fd88161e9c81f84cf8
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  YuyanOneClickLogin: fd9fe312c7c75f105782c330a688b527f3e0695b
+  YuyanOneClickLogin: 50ad425131b9efdd3d4810edbf057ab658cce1a8
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: be9bacefb6fe5087aebac7d86a8179380f645efd
+PODFILE CHECKSUM: ad904d81fdc67f03923dd05a4a6ab0256e997116
 
 COCOAPODS: 1.9.3

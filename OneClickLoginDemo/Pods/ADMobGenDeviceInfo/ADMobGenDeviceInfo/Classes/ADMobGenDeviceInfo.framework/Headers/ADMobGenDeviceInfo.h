@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *admg_openUdid; ///<
 @property (nonatomic, readonly, copy) NSString *admg_lat; ///< 纬度1
 @property (nonatomic, readonly, copy) NSString *admg_lng; ///< 经度1
+@property (nonatomic, readonly, copy) NSString *admg_alt; ///< 海拔
+@property (nonatomic, readonly, copy) NSString *admg_pressure; ///< 气压(hPa)
 @property (nonatomic, readonly, copy) NSString *admg_ip; ///< ip地址1
 @property (nonatomic, readonly, assign) NSInteger admg_deviceType; ///< 设备类型, ipad,手机等1
 @property (nonatomic, readonly, copy) NSString *admg_idfv;

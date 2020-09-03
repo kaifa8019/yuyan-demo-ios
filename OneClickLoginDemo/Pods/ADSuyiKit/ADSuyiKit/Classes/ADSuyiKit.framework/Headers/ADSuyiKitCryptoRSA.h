@@ -12,19 +12,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ADSuyiKitCryptoRSA : NSObject
 
 // return base64 encoded string
-+ (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey;
++ (NSString *)encryptString:(NSString *)str publicKey:(NSString *)pubKey keychainTag:(NSString *)keychainTag;
 // return raw data
-+ (nullable NSData *)encryptData:(NSData *)data publicKey:(NSString *)pubKey;
++ (nullable NSData *)encryptData:(NSData *)data publicKey:(NSString *)pubKey keychainTag:(NSString *)keychainTag;
 // return base64 encoded string
-+ (NSString *)encryptString:(NSString *)str privateKey:(NSString *)privKey;
++ (NSString *)encryptString:(NSString *)str privateKey:(NSString *)privKey keychainTag:(NSString *)keychainTag;
 // return raw data
-+ (nullable NSData *)encryptData:(NSData *)data privateKey:(NSString *)privKey;
++ (nullable NSData *)encryptData:(NSData *)data privateKey:(NSString *)privKey keychainTag:(NSString *)keychainTag;
 
 // decrypt base64 encoded string, convert result to string(not base64 encoded)
-+ (NSString *)decryptString:(NSString *)str publicKey:(NSString *)pubKey;
-+ (nullable NSData *)decryptData:(NSData *)data publicKey:(NSString *)pubKey;
-+ (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey;
-+ (nullable NSData *)decryptData:(NSData *)data privateKey:(NSString *)privKey;
++ (NSString *)decryptString:(NSString *)str publicKey:(NSString *)pubKey keychainTag:(NSString *)keychainTag;
++ (nullable NSData *)decryptData:(NSData *)data publicKey:(NSString *)pubKey keychainTag:(NSString *)keychainTag;
++ (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey keychainTag:(NSString *)keychainTag;
++ (nullable NSData *)decryptData:(NSData *)data privateKey:(NSString *)privKey keychainTag:(NSString *)keychainTag;
 
 @end
 

@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIApplication (ADSuyiKit)
 
+/// 手机是否已经越狱
+@property (nonatomic, readonly) BOOL adsy_isJalibreak;
 /// app是否是盗版(不是从app store下载的)
 @property (nonatomic, readonly) BOOL adsy_isPirated;
 
